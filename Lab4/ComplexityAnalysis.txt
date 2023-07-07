@@ -1,0 +1,38 @@
+
+Space Complexity Analysis
+
+1. Critical Operations
+   Critical operations for this program are find(), get(), add(), and remove().
+
+2. Count # of Critical Operations
+   4 total.
+
+3. Express # of Critical Operations as a Function
+   numItems = q
+   Each item has a front and back, therefore making it 3 times bigger, and the
+   equation:
+
+   4 * 3(q) = 12 bytes
+
+Time Complexity Analysis
+
+isEmpty() - 0
+size() - 0
+removeAll - 0
+toString - 0
+
+get()
+BC - 0
+WC - (n-1)/2 (because of the ability to go backwards)
+AC - (n-1)/4
+
+add()
+BC - 0
+WC - (n-1)/2
+AC  (n-1)/4
+
+remove()
+BC - 0
+WC - n/2
+AC - n+1/4
+

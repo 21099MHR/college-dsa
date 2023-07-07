@@ -1,0 +1,493 @@
+LAB 3 CONVERTED TO A GENERIC COLLECTION
+
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 3 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/11/20
+
+ * Submitted:  02/11/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.11
+
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+
+public class Driver {
+	static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));
+
+	public static <T> void main(String[] args) throws NumberFormatException, IOException {
+		
+		
+		LinkedList<T> items = new LinkedList<T>();		
+		boolean switchOn = true;
+		
+		System.out.println("\nSelect from the following menu:"
+				+ "\n\t1. Insert item to list\n\t2. Remove item from list"
+				+ "\n\t3. Get item from list"
+				+ "\n\t4. Clear list\n\t5. Print size and content of list"
+				+ "\n\t6. Delete largest item in the list." 
+				+ "\n\t7. Reverse list" + "\n\t8. Exit program");		
+			
+		while(switchOn == true)
+		{
+			System.out.print("\nMake your selection now: ");
+			int selection = Integer.parseInt(stdin.readLine().trim());
+			System.out.println(selection);
+			
+			switch(selection)
+			{
+			
+			/*
+			 * Case 0 exists solely to test Problem 3.
+			 * It takes input from the Command Line, then
+			 * prints 
+			 */
+		case 0: 			
+			System.out.print("1st String to test: ");
+			String test1 = stdin.readLine();
+			System.out.print(test1 + "\n2nd String to test: ");
+			String test2 = stdin.readLine();
+			System.out.println(test2);
+			
+			System.out.println("\n" + test1 + " compared to " + test2 + ": "
+					+ test1.compareTo(test2));
+			
+			break;
+			
+			case 1:
+				System.out.print("\nYou are now inserting an item into the list.\n\tEnter item: ");
+				Object item = stdin.readLine().trim();
+				System.out.println(item);
+				
+				System.out.print("\tEnter position to insert item in: ");
+				int index = Integer.parseInt(stdin.readLine().trim());
+				System.out.println(index);
+				
+				if(index >= items.size()+1)
+				{
+					System.out.println("\nPosition specified is out of range!");
+				}
+				else
+				{
+				items.add(index, (T) item);
+				System.out.println("\nItem " + item + " inserted at position " + index + " in the list.");
+				}
+				break;
+			case 2:
+				System.out.print("\tEnter position to remove item from: ");
+				int toRemove = Integer.parseInt(stdin.readLine().trim());
+				System.out.println(toRemove);
+				
+				if((toRemove >= items.size()) || (toRemove < 0))
+				{
+					System.out.println("\nPosition specified is out of range!");
+				}
+				else
+				{
+					System.out.println("\nItem " + items.get(toRemove) + " removed from position " + toRemove + " in the list.");
+					items.remove(toRemove);
+				}
+				break;
+			case 3:
+				System.out.print("\t\nEnter position to retrieve item from: ");
+				int toRetrieve = Integer.parseInt(stdin.readLine().trim());
+				System.out.println(toRetrieve);
+				
+				if((toRetrieve >= items.size()) || (toRetrieve < 0))
+				{
+					System.out.println("\nPosition specified is out of range!");
+				}
+				else
+				{
+					System.out.println("\nItem " + items.get(toRetrieve) + " retrieved from position " + toRetrieve + " in the list."); 
+				}
+				break;
+			case 4:
+				items.removeAll(items);
+				break;
+			case 5:
+				
+				if(items.size() == 0)
+				{
+					System.out.println("List is empty.");
+				}
+				else
+				{
+				System.out.print("List of size " + items.size() + " has the following items: ");
+				
+				for(int i = 0; i < items.size(); i++)
+				{
+					System.out.print(items.get(i) + " ");
+				}
+				}
+				break;
+				
+			case 6:			
+				if(items.size() == 0)
+				{
+					System.out.println("List empty, nothing to delete!");
+				}
+				else
+				{
+				String compare = "";
+				int removeIndex = 0;
+				for(int i = 0; i < items.size(); i++)
+				{
+					if(items.get(i).toString().compareTo(compare) > 0)
+						{
+						compare = items.get(i).toString();
+						removeIndex = i;
+						}
+				}
+				System.out.println("Largest item " + items.get(removeIndex).toString() + " deleted.");
+				items.remove(removeIndex);
+				}
+				break;
+				
+			case 7:
+				
+				if(items.size() == 0)
+				{
+					System.out.println("List is empty... nothing to reverse!");
+				}
+				else
+				{
+					
+					for(int i = 0, k = items.size()-1; i < items.size()/2; i++, k--)
+					{
+						Object toFront = items.get(k);
+						Object toBack = items.get(i);
+						
+						items.add(i, (T) toFront);
+						items.remove(i+1);
+						
+						items.add(k, (T) toBack);
+						items.remove(k+1);
+					}
+					
+					System.out.println("List reversed");
+				}
+				
+				break;
+				
+			case 8:
+				switchOn = false;
+				System.out.print("Exiting program...Good Bye");
+				break;
+				
+
+				default:
+					
+					break;
+			}
+		}
+		
+	}
+}
+
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 3 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/11/20
+
+ * Submitted:  02/11/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.11
+
+ */
+
+public class ListIndexOutOfBoundsException
+    extends IndexOutOfBoundsException
+{
+    public ListIndexOutOfBoundsException(String s)
+    {
+        super(s);
+    }  // end constructor
+}  // end ListIndexOutOfBoundsException
+
+
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 3 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/11/20
+
+ * Submitted:  02/11/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.11
+
+ */
+
+// ********************************************************
+// Interface ListInterface for the ADT list.
+// *********************************************************
+public interface ListInterface 
+{
+  boolean isEmpty();
+  int size();
+  void add(int index, Object item) throws ListIndexOutOfBoundsException;
+  Object get(int index) throws ListIndexOutOfBoundsException;
+  void remove(int index) throws ListIndexOutOfBoundsException;
+  void removeAll();
+  String toString();
+}  // end ListInterface
+
+
+
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 3 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/11/20
+
+ * Submitted:  02/11/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.11
+
+ */
+
+// Please note that this code is slightly different from the textbook code 
+//to reflect the fact that the Node class is implemented using data encapsulation
+
+
+// ****************************************************
+// Reference-based implementation of ADT list.
+// ****************************************************
+public class MyListReferenceBased implements ListInterface 
+{
+  // reference to linked list of items
+  private Node head; 
+
+  public MyListReferenceBased() 
+  {
+    head = null;
+  }  // end default constructor
+
+  public boolean isEmpty() 
+  {
+    return size() == 0;
+  }  // end isEmpty
+
+  public int size() 
+  {
+   int numItems = 0;
+   Node next = head;
+   
+   while(next != null)
+   {
+	   numItems++;
+	   next.getNext();
+   }
+   return numItems;
+  }  // end size
+
+  private Node find(int index) 
+  {
+  // --------------------------------------------------
+  // Locates a specified node in a linked list.
+  // Precondition: index is the number of the desired
+  // node. Assumes that 0 <= index <= numItems 
+  // Postcondition: Returns a reference to the desired 
+  // node.
+  // --------------------------------------------------
+    Node curr = head;
+    for (int skip = 0; skip < index; skip++) 
+    {
+      curr = curr.getNext();
+    } // end for
+    return curr;
+  } // end find
+
+  public Object get(int index) 
+                throws ListIndexOutOfBoundsException 
+  {
+    if (index >= 0 && index < size()) 
+    {
+      // get reference to node, then data in node
+      Node curr = find(index);
+      Object dataItem = curr.getItem();
+      return dataItem;
+    } 
+    else 
+    {
+      throw new ListIndexOutOfBoundsException(
+                     "List index out of bounds exception on get");
+    } // end if
+  } // end get
+
+  public void add(int index, Object item)
+                  throws ListIndexOutOfBoundsException 
+  {
+    if (index >= 0 && index < size()+1) 
+    {
+      if (index == 0) 
+      {
+        // insert the new node containing item at
+        // beginning of list
+        Node newNode = new Node(item, head);
+        head = newNode;
+      } 
+      else 
+      {
+        Node prev = find(index-1);
+        // insert the new node containing item after 
+        // the node that prev references
+        Node newNode = new Node(item, prev.getNext());
+        prev.setNext(newNode);
+      } // end if
+    } 
+    else 
+    {
+      throw new ListIndexOutOfBoundsException(
+                    "List index out of bounds exception on add");
+    } // end if
+  }  // end add
+
+  public void remove(int index) 
+                   throws ListIndexOutOfBoundsException 
+  {
+    if (index >= 0 && index < size()) 
+    {
+      if (index == 0) 
+      {
+        // delete the first node from the list
+        head = head.getNext();
+      } 
+      else 
+      {
+        Node prev = find(index-1);
+        // delete the node after the node that prev
+        // references, save reference to node
+        Node curr = prev.getNext(); 
+        prev.setNext(curr.getNext());
+      } // end if
+    } // end if
+    else 
+    {
+      throw new ListIndexOutOfBoundsException(
+                   "List index out of bounds exception on remove");
+    } // end if
+  }   // end remove
+
+  public void removeAll() 
+  {
+    // setting head to null causes list to be
+    // unreachable and thus marked for garbage 
+    // collection
+    head = null;
+  } // end removeAll
+  
+  public String toString()
+  {
+	   Node next = head;
+	   StringBuilder builder = new StringBuilder();
+	   String toReturn = "";
+	   
+	   while(next != null)
+	   {
+		   String name = next.getItem().toString() + " ";
+		   builder.append(name);
+		   next.getNext();
+	   }
+	   toReturn = builder.toString();
+	   
+	return toReturn;  
+  }
+  
+} // end ListReferenceBased
+
+
+
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 3 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/11/20
+
+ * Submitted:  02/11/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.11
+
+ */
+
+//please note that this code is different from the textbook code, because the data is encapsulated!
+ 
+public class Node<T> 
+{
+  private T item;
+  private Node next;
+
+  public Node(T newItem) 
+  {
+    item = newItem;
+    next = null;
+  } // end constructor
+
+  public Node(T newItem, Node nextNode) 
+  {
+    item = newItem;
+    next = nextNode;
+  } // end constructor
+
+  public void setItem(T newItem) 
+  {
+    item = newItem;
+  } // end setItem
+
+  public Object getItem() 
+  {
+    return item;
+  } // end getItem
+
+  public void setNext(Node nextNode) 
+  {
+    next = nextNode;
+  } // end setNext
+
+  public Node getNext() 
+  {
+    return next;
+  } // end getNext
+  
+} // end class Node

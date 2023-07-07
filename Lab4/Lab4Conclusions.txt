@@ -1,0 +1,8 @@
+I feel  kinda shakey on the analysis but it is what it is at this point.
+
+What I got out of this lab was a deeper understanding of how the LinkedArray
+really works. Its so simple to make it circular *at the cost* of memory, which
+is an important lesson to take out of things.
+
+Efficiency isn't just something you get - the give and take between efficiency
+and simplicity isn't 1:1, so you need to carefully measure things out.

@@ -1,0 +1,192 @@
+
+Select from the following menu:
+	0. Exit.
+	1. Pick up an order.
+	2. Drop off an order.
+	3. Display number of packages and weight of bag.
+	4. Display number of items and weight of the bag of samples.
+	5. Enjoy an item from the bag of samples.
+	6. Enjoy all the samples in the bag of samples.
+
+
+Make your selection now: 3
+Bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 5
+No samples to enjoy!
+
+
+
+Item weight: 0.6
+
+# of items: 10
+
+Sender: Pickachu
+
+Recipient: Mew
+A package of apple each weighing 0.6 lbs are now in the bag.
+
+Make your selection now: 3
+Bag has 1 packages and weights 5.9999995 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 1
+Please specify info: 
+Item name: orange
+
+Item weight: 0.85
+
+# of items: 14
+
+Sender: Bulbasaur
+
+Recipient: Abra
+A package of orange each weighing 0.85 lbs are now in the bag.
+
+Make your selection now: 1
+Please specify info: 
+Item name: pear
+
+Item weight: 0.9
+
+# of items: 7
+
+Sender: Abra
+
+Recipient: Kadabra
+A package of pear each weighing 0.9 lbs are now in the bag.
+
+Make your selection now: 3
+Bag has 3 packages and weights 24.2 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 2
+Here is your package Kadabra. May I keep a sample (Y/N)? Y
+Your package contains: 
+7 pears each weighing 0.9 from Abra to Kadabra
+ Thanks for letting me keep a pear!
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.9 lbs.
+
+Make your selection now: 3
+Bag has 3 packages and weights 24.2 lbs.
+
+Make your selection now: 1
+Please specify info: 
+Item name: cookie
+
+Item weight: 0.1
+
+# of items: 50
+
+Sender: Charizard
+
+Recipient: Squirtle
+A package of cookie each weighing 0.1 lbs are now in the bag.
+
+Make your selection now: 1
+Please specify info: 
+Item name: banana
+
+Item weight: 0.5
+
+# of items: 22
+
+Sender: Clefairy
+
+Recipient: Vulpix
+A package of banana each weighing 0.5 lbs are now in the bag.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.9 lbs.
+
+Make your selection now: 3
+Bag has 5 packages and weights 40.20002 lbs.
+
+Make your selection now: 2
+Here is your package Vulpix. May I keep a sample (Y/N)? N
+Your package contains: 
+22 bananas each weighing 0.5 from Clefairy to Vulpix
+ Thanks anyway.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.9 lbs.
+
+Make your selection now: 3
+Bag has 5 packages and weights 40.20002 lbs.
+
+Make your selection now: 2
+Here is your package Squirtle. May I keep a sample (Y/N)? Y
+Your package contains: 
+50 cookies each weighing 0.1 from Charizard to Squirtle
+ Thanks for letting me keep a cookie!
+
+Make your selection now: 4
+Sample bag has 2 packages and weights 1.0 lbs.
+
+Make your selection now: 3
+Bag has 5 packages and weights 40.20002 lbs.
+
+Make your selection now: 5
+This cookie is amazing! I love free stuff!
+
+Make your selection now: 3
+Bag has 5 packages and weights 40.20002 lbs.
+
+Make your selection now: 4
+Sample bag has 2 packages and weights 1.0 lbs.
+
+Make your selection now: 6
+Sample bag has been emptied.
+
+Make your selection now: 1
+Please specify info: 
+Item name: granola
+
+Item weight: 0.5
+
+# of items: 25
+
+Sender: Jigglypuff
+
+Recipient: Meowth
+A package of granola each weighing 0.5 lbs are now in the bag.
+
+Make your selection now: 1
+Please specify info: 
+Item name: watermelon
+
+Item weight: 3.7
+
+# of items: 3
+
+Sender: Slowpoke
+
+Recipient: Slowbro
+A package of watermelon each weighing 3.7 lbs are now in the bag.
+
+Make your selection now: 2
+Here is your package Slowbro. May I keep a sample (Y/N)? Y
+Your package contains: 
+3 watermelons each weighing 3.7 from Slowpoke to Slowbro
+ Thanks for letting me keep a watermelon!
+
+Make your selection now: 3
+Bag has 7 packages and weights 63.800022 lbs.
+
+Make your selection now: 4
+Sample bag has 3 packages and weights 4.7 lbs.
+
+Make your selection now: 5
+This watermelon is amazing! I love free stuff!
+
+Make your selection now: 0
+Exiting program...Good Bye

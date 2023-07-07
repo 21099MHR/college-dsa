@@ -1,0 +1,92 @@
+import java.util.LinkedList;
+
+public class MenuHandling {
+
+    public static LinkedList<Object> add(LinkedList<Object> items, int index, Object item)
+    {
+        if(index >= items.size()+1)
+        {
+            System.out.println("\nPosition specified is out of range!");
+        }
+        else
+        {
+            items.add(index, item);
+            System.out.println("\nItem " + item + " inserted at position " + index + " in the list.");
+        }
+
+        return items;
+    }
+
+    public static LinkedList<Object> remove(LinkedList<Object> items, int toRemove) {
+        if(items.size() == 0)
+        {
+            System.out.println("List is empty.");
+        }
+        else if((toRemove >= items.size()) || (toRemove < 0))
+        {
+            System.out.println("\nPosition specified is out of range!");
+        }
+        else
+        {
+            System.out.println("\nItem " + items.get(toRemove) + " removed from position " + toRemove + " in the list.");
+            items.remove(toRemove);
+        }
+
+        return items;
+    }
+
+    public static void get(LinkedList<Object> items, int toRetrieve) {
+        if((toRetrieve >= items.size()) || (toRetrieve < 0))
+        {
+            System.out.println("\nPosition specified is out of range!");
+        }
+        else
+        {
+            System.out.println("\nItem " + items.get(toRetrieve) + " retrieved from position " + toRetrieve + " in the list.");
+        }
+    }
+
+    public static void printAll(LinkedList<Object> items) {
+        if(items.size() == 0)
+        {
+            System.out.println("List is empty.");
+        }
+        else
+        {
+            System.out.print("List of size " + items.size() + " has the following items: ");
+
+            for(int i = 0; i < items.size(); i++)
+            {
+                System.out.print(items.get(i) + " ");
+            }
+        }
+    }
+
+    public static LinkedList<Object> reverseList(LinkedList<Object> items) {
+        if(items.size() == 0)
+        {
+            System.out.println("List is empty... nothing to reverse!");
+        }
+        else
+        {
+
+            for(int i = 0, k = items.size()-1; i < items.size()/2; i++, k--)
+            {
+                Object toFront = items.get(k);
+                Object toBack = items.get(i);
+
+                items.add(i, toFront);
+                items.remove(i+1);
+
+                items.add(k, toBack);
+                items.remove(k+1);
+            }
+
+            System.out.println("List reversed");
+        }
+        return items;
+    }
+
+
+
+}

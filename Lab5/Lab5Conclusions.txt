@@ -1,0 +1,15 @@
+Generics are *funky.*
+
+They are incredibly powerful, but *incredibly* funky at the same time; there was
+a bit of a learning curve to converting from a straight Object type to the
+generic T type, but once I got that, it was smooth sailing.
+
+Really, the thing that I got the most of out of this lab (outside of the use of
+Queues and Generics)?
+
+REMEMBER TO UPDATE YOUR VARIABLES!
+
+I spent *so long* trying to figure out what was causing the math to bug out,
+only to realize after a good night's sleep, *I* was the cause of the bad math!
+
+Such a novice error to make and somehow, I did it.
