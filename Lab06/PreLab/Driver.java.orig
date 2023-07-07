@@ -1,0 +1,81 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Driver {
+	static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));	
+	
+	public static <T> void main(String[] args) throws NumberFormatException, IOException, QueueException {
+		
+		QueueRAB<T> queue = new QueueRAB<T>();
+		
+		System.out.println("Select from the following: "
+				+ "\n\t1. Insert item at back of queue"
+				+ "\n\t2. Remove item from front of queue"
+				+ "\n\t3. Display front item of queue"
+				+ "\n\t4. Clear queue"
+				+ "\n\t5. Display content of queue"
+				+ "\n\t6. Exit");
+		
+		boolean switchOn = true;
+		T result;
+		
+		while(switchOn == true)
+				{
+			System.out.print("\n\nMake your selection now: ");
+			int selection = Integer.parseInt(stdin.readLine());
+			
+			switch(selection)
+			{
+			case 1:
+				System.out.print("\nItem to be added: ");
+				Object newItem = stdin.readLine();
+				System.out.println(newItem);
+				queue.enqueue(newItem);
+				System.out.println(newItem + " has been added to front of queue.");
+				break;
+				
+			case 2:
+				result = queue.dequeue();
+				if(result == null)
+				{
+					System.out.println("Queue empty!");
+				}
+				else
+				{
+					System.out.println("\n" + result + " has been removed from the front of the queue.");
+				}
+				break;
+				
+			case 3:
+				result = queue.peek();
+				if(result == null)
+				{
+					System.out.println("Queue empty!");
+				}
+				else
+				{
+					System.out.println("\nFront item of queue: " + result);
+				}
+				break;
+				
+			case 4:
+				queue.dequeueAll();
+				System.out.println("\nQueue cleared.");
+				break;
+				
+			case 5:
+				System.out.println("Contents of queue: " + queue.toString());
+				break;
+				
+			case 6:
+				switchOn = false;
+				System.out.println("Exiting program... Goodbye!");
+			}
+			
+				}
+		
+
+	}
+
+}

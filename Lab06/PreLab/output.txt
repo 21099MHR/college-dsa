@@ -1,0 +1,128 @@
+Select from the following: 
+	1. Insert item at back of queue
+	2. Remove item from front of queue
+	3. Display front item of queue
+	4. Clear queue
+	5. Display content of queue
+	6. Exit
+
+
+Make your selection now: 1
+
+Item to be added: A-Assault Core
+A-Assault Core has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: B-Buster Drake
+B-Buster Drake has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: C-Crush Wyvern
+C-Crush Wyvern has been added to back of queue.
+
+
+Make your selection now: 3
+
+Front item of queue: A-Assault Core
+
+
+Make your selection now: 2
+
+A-Assault Core has been removed from the front of the queue.
+
+
+Make your selection now: 3
+
+Front item of queue: B-Buster Drake
+
+
+Make your selection now: 2
+
+B-Buster Drake has been removed from the front of the queue.
+
+
+Make your selection now: 3
+
+Front item of queue: C-Crush Wyvern
+
+
+Make your selection now: 2
+
+C-Crush Wyvern has been removed from the front of the queue.
+
+
+Make your selection now: 3
+Queue empty!
+Queue empty!
+
+
+Make your selection now: 1
+
+Item to be added: ABC-Dragon Buster
+ABC-Dragon Buster has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: VYXYZ-Dragon Catapult Cannon
+VYXYZ-Dragon Catapult Cannon has been added to back of queue.
+
+
+Make your selection now: 4
+
+Queue cleared.
+
+
+Make your selection now: 1
+
+Item to be added: A-to-Z Dragon Cannon Buster
+A-to-Z Dragon Cannon Buster has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Celtic Guardian
+Celtic Guardian has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Winged Dragon of Ra
+Winged Dragon of Ra has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Slifer, the Sky Dragon
+
+Slifer, the Sky Dragon has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Obelisk the Tormentor
+Obelisk the Tormentor has been added to back of queue.
+
+
+Make your selection now: 3
+
+Front item of queue: A-to-Z Dragon Cannon Buster
+
+
+Make your selection now: 5
+
+Contents of queue: A-to-Z Dragon Cannon Buster Celtic Guardian Winged Dragon of Ra Slifer, the Sky Dragon Obelisk the Tormentor 
+
+
+Make your selection now: 4
+
+Queue cleared.
+
+
+Make your selection now: 0
+
+Exiting program... Goodbye!
