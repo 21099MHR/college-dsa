@@ -1,0 +1,837 @@
+::::::::::::::
+Driver.java
+::::::::::::::
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Driver {
+	
+	static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));
+	
+	public static void main(String args[]) throws NumberFormatException, IOException
+	{	
+		MenuHandling.printMenu();
+		boolean switchOn = true;
+		boolean firstResponse = true;
+		int userIn = 0;
+		
+		while(switchOn == true)
+		{
+			if(firstResponse == true)
+			{
+				System.out.print("Make your menu selection now: ");
+				firstResponse = false;
+			}
+			else
+			{
+				System.out.print("You know the options: ");
+			}
+			userIn = Integer.parseInt(stdin.readLine().trim());
+			System.out.println(userIn);
+			
+			while(userIn > 1 && InventoryManagement.getInventory().size() == 0)
+			{
+				System.out.println("\tError: no items in the inventory.\nYou know the options: ");
+				userIn = Integer.parseInt(stdin.readLine().trim());
+			}
+			
+			switch(userIn)
+			{
+			case 0:
+				switchOn = false;
+				System.out.println("Goodbye!");
+				break;
+			case 1:		
+				String name = "";
+				float price = 0;
+				int shelf = 0;
+				int amount = 0;
+				
+				System.out.print("You are now adding a new item to the inventory. \n\tEnter name of the item: ");
+				name = stdin.readLine().trim();
+				System.out.println(name);				
+				for(int i = 0; i < InventoryManagement.getInventory().size(); i++)
+				{
+					boolean nameTaken = false;
+					if(InventoryManagement.getInventory().get(i).getName().equals(name))
+					{
+						nameTaken = true;
+						while(nameTaken == true)
+						{
+							System.out.print("This item already exists in the inventory! Please specify another item: ");
+							name = stdin.readLine().trim();
+							if(InventoryManagement.getInventory().get(i).getName().trim().equals(name.trim()))
+							{
+								System.out.println("This item already exists in the inventory! Please specify another item: ");
+								name = stdin.readLine().trim();
+								System.out.println(name);				
+
+							}
+							else
+							{
+								nameTaken = false;
+							}
+						}
+					}
+				}
+				System.out.print("\tEnter number of items of this type: ");
+				amount = Integer.parseInt(stdin.readLine().trim());
+				System.out.println(amount);
+				
+				System.out.print("\tEnter the price of items of this type: ");
+				price = Float.parseFloat(stdin.readLine().trim());
+				System.out.println(price);
+				
+				System.out.print("\tEnter the location of this item (shelf number): ");
+				shelf = Integer.parseInt(stdin.readLine().trim());
+				System.out.println(shelf);
+				
+				InventoryManagement.addItem(name, amount, price, shelf);
+				System.out.println("\n");
+				break;
+			case 2:
+				System.out.println("Enter the name of the item you want deleted: ");
+				String toDelete = stdin.readLine().trim();
+				System.out.println(toDelete);
+				InventoryManagement.removeItem(toDelete);
+				break;
+				
+			case 3:
+				System.out.println("Enter the name of the item in the inventory to search for: ");
+				String toSearch = stdin.readLine().trim();
+				System.out.println(toSearch);
+				InventoryManagement.searchInv(toSearch);
+				break;
+			
+			case 4:
+				System.out.print("Enter the name of the item in the inventory to update the amount: ");
+				String toUpdate = stdin.readLine().trim();
+				System.out.print(toUpdate);
+				
+				boolean found = false;
+				int counter = 0;
+				while((found == false) && (counter < InventoryManagement.getInventory().size()))
+				{
+					if(InventoryManagement.getInventory().get(counter).getName().equals(toUpdate))
+					{
+						found = true;
+					}
+					else
+					{
+						counter++;
+					}
+				}
+				
+				if(found == true)
+				{
+					System.out.print("\nEnter the new amount: ");
+					int newNum = Integer.parseInt(stdin.readLine());
+					System.out.println(newNum);
+					
+					if(newNum > 0)
+					{
+					InventoryManagement.getInventory().get(counter).setAmount(newNum);
+					InventoryManagement.updateItem(toUpdate, counter);
+					}
+					else
+					{
+						InventoryManagement.removeItem(toUpdate);
+					}
+				}
+				else
+				{
+					System.out.println("\tNo such item in the inventory.\n");
+				}
+				break;
+				
+			case 5:
+				InventoryManagement.displayInventory();
+				break;
+				
+			case 6:
+				InventoryManagement.displayByShelf();
+				break;
+				
+			case 7:
+				InventoryManagement.minmaxPrices();
+				break;
+				
+			default:
+					
+				break;
+			
+			
+			}
+		}
+	}
+}
+::::::::::::::
+InventoryManagement.java
+::::::::::::::
+import java.util.ArrayList;
+
+
+public class InventoryManagement {
+	static ArrayList<Item> inventory = new ArrayList<Item>();
+	
+	public static ArrayList<Item> getInventory()
+	{
+		return inventory;
+	}
+	
+	public static void addItem(String name, int amount, float price, int shelf)
+	{	
+		Item item = new Item();
+		item.setAmount(amount);
+		item.setName(name);
+		item.setPrice(price);
+		item.setShelf(shelf);
+		inventory.add(item);	
+	}
+
+
+	public static void removeItem(String toDelete) {
+		for(int i = 0; i < inventory.size(); i++)
+		{
+			if(inventory.get(i).getName().equals(toDelete))
+			{
+				inventory.remove(i);
+				System.out.println("Info for " + toDelete + " has been deleted.");
+			}
+		}
+	}
+	
+
+
+
+	public static void searchInv(String toSearch) {
+		boolean found = false;
+		int counter = 0;
+		while((found == false) && (counter < inventory.size()))
+		{
+			if(inventory.get(counter).getName().equals(toSearch))
+			{
+				found = true;
+			}
+			else
+			{
+				counter++;
+			}
+		}
+		
+		if(found == true)
+		{
+			System.out.print("\tItem information for " + toSearch +
+					":\n\t\tAmount : " + inventory.get(counter).getAmount() 
+					+ "\n\t\tPrice : " + inventory.get(counter).getPrice() 
+					+ "\n\t\tLocation (shelf number) : " + inventory.get(counter).getShelf() + "\n");
+		}
+		else
+		{
+			System.out.println("\tNo such item in the inventory.\n");
+		}
+		
+	}
+
+
+	public static void updateItem(String toUpdate, int counter) {
+		
+		System.out.print("\tUpdated item information for " + toUpdate +
+				":\n\t\tAmount : " + inventory.get(counter).getAmount() 
+				+ "\n\t\tPrice : " + inventory.get(counter).getPrice() 
+				+ "\n\t\tLocation (shelf number) : " + inventory.get(counter).getShelf() + "\n");		
+	}
+
+	public static void displayInventory() {
+		System.out.print("The inventory has information about the following ");
+		if(inventory.size() > 1)
+		{
+			System.out.println(inventory.size() + " items: ");
+		}
+		else
+		{
+			System.out.print("item: ");
+		}
+		
+		for(int counter = 0; counter < inventory.size(); counter++)
+		{
+			System.out.println("\tItem information for " + inventory.get(counter).getName());
+			
+			System.out.println("\t\tAmount : " + inventory.get(counter).getAmount() 
+			+ "\n\t\tPrice : " + inventory.get(counter).getPrice() 
+			+ "\n\t\tLocation (shelf number) : " + inventory.get(counter).getShelf());
+		}
+		
+	}
+
+	public static void displayByShelf() {
+		
+		System.out.print("The inventory has information about the following ");
+		
+		if(inventory.size() > 1)
+		{
+			System.out.println(inventory.size() + " items: ");
+		}
+		else
+		{
+			System.out.print("item: ");
+		}
+		
+		int maxShelf = 0;
+		for(int i = 0; i < inventory.size(); i++)
+		{
+			if(inventory.get(i).getShelf() > maxShelf)
+			{
+				maxShelf = inventory.get(i).getShelf();
+			}
+		}
+		
+		for(int i = 1; i <= maxShelf; i++)
+		{
+			float shelfPriceTotal = 0;
+			int itemsOnShelf = 0;
+			for(int counter = inventory.size()-1; counter >= 0; counter--)
+			{
+				if(inventory.get(counter).getShelf() == i)
+				{
+					System.out.print("\tItem information for " + inventory.get(counter).getName() +
+							":\n\t\tAmount : " + inventory.get(counter).getAmount() 
+							+ "\n\t\tPrice : " + inventory.get(counter).getPrice() 
+							+ "\n\t\tLocation (shelf number) : " + inventory.get(counter).getShelf() + "\n");
+					
+					itemsOnShelf += inventory.get(counter).getAmount();
+					shelfPriceTotal += (inventory.get(counter).getAmount() * inventory.get(counter).getPrice());
+				}
+				if(counter == 0)
+				{
+					System.out.println("The inventory has a total of " + itemsOnShelf + " items "
+							+ "with a cumulative price of $" + shelfPriceTotal + " on shelf " + i);
+				}
+			}
+		}
+	}
+		
+		
+
+	
+	public static void minmaxPrices()
+	{
+		float minPrice = inventory.get(0).getPrice();
+		float maxPrice = inventory.get(0).getPrice();
+		
+		int minIndex = 0;
+		int maxIndex = 0;
+		
+		for(int i = 0; i < inventory.size(); i++)
+		{
+			if(inventory.get(i).getPrice() < minPrice)
+			{
+				minPrice = inventory.get(i).getPrice();
+				minIndex = i;
+			}
+			else if (inventory.get(i).getPrice() > maxPrice)
+			{
+				maxPrice = inventory.get(i).getPrice();
+				maxIndex = i;
+			}
+		}
+		
+		System.out.println("\tThe most expensive item in the inventory is " + inventory.get(maxIndex).getName());
+		
+		System.out.println("\t\tAmount : " + inventory.get(maxIndex).getAmount() 
+		+ "\n\t\tPrice : " + inventory.get(maxIndex).getPrice() 
+		+ "\n\t\tLocation (shelf number) : " + inventory.get(maxIndex).getShelf());
+		
+		
+		System.out.println("\tThe least expensive item in the inventory is " + inventory.get(minIndex).getName());
+		
+		System.out.println("\t\tAmount : " + inventory.get(minIndex).getAmount() 
+		+ "\n\t\tPrice : " + inventory.get(minIndex).getPrice() 
+		+ "\n\t\tLocation (shelf number) : " + inventory.get(minIndex).getShelf());
+		
+	}
+	
+}
+	
+	
+::::::::::::::
+Item.java
+::::::::::::::
+
+public class Item {
+	private String name;
+	private int amount;
+	private int shelf;	
+	private float price;
+	
+	public void setName(String userIn)
+	{
+		name = userIn;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public void setAmount(int userIn)
+	{
+		amount = userIn;
+	}
+	
+	public int getAmount()
+	{
+		return amount;
+	}
+
+	public void setPrice(float userIn)
+	{
+		price = userIn;
+	}
+	
+	public float getPrice()
+	{
+		return price;
+	}
+	
+	public void setShelf(int userIn)
+	{
+		shelf = userIn;
+	}
+	
+	public int getShelf()
+	{
+		return shelf;
+	}
+	
+}
+::::::::::::::
+MenuHandling.java
+::::::::::::::
+public class MenuHandling {
+	
+	public static void printMenu()
+	{
+		System.out.println("Select from the following options: \n\n 0. Exit the program \n 1. Add an item \n 2. Delete an item \n 3. Display info about an item \n 4. Update an item \n 5. Display Inventory content \n 6. Display info about items by Shelf \n 7. Display info about the most/least expensive item");
+	}
+	
+
+}
+	
+::::::::::::::
+assignment.output
+::::::::::::::
+Select from the following options: 
+
+ 0. Exit the program 
+ 1. Add an item 
+ 2. Delete an item 
+ 3. Display info about an item 
+ 4. Update an item 
+ 5. Display Inventory content 
+ 6. Display info about items by Shelf 
+ 7. Display info about the most/least expensive item
+Make your menu selection now: 2
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+You are now adding a new item to the inventory. 
+	Enter name of the item: sock
+	Enter number of items of this type: 5
+	Enter the price of items of this type: 1.99
+	Enter the location of this item (shelf number): 3
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shoe
+	Enter number of items of this type: 2
+	Enter the price of items of this type: 50.0
+	Enter the location of this item (shelf number): 1
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shirt
+	Enter number of items of this type: 5
+	Enter the price of items of this type: 20.0
+	Enter the location of this item (shelf number): 4
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: skirt
+	Enter number of items of this type: 4
+	Enter the price of items of this type: 40.5
+	Enter the location of this item (shelf number): 3
+
+
+You know the options: 5
+The inventory has information about the following 4 items: 
+	Item information for sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+You know the options: 6
+The inventory has information about the following 4 items: 
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 2 items with a cumulative price of $100.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+The inventory has a total of 9 items with a cumulative price of $171.95 on shelf 3
+	Item information for shirt:
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 5 items with a cumulative price of $100.0 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shoe
+This item already exists in the inventory! Please specify another item: 	Enter number of items of this type: 3
+	Enter the price of items of this type: 9.99
+	Enter the location of this item (shelf number): 4
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: pant
+	Enter number of items of this type: 2
+	Enter the price of items of this type: 25.5
+	Enter the location of this item (shelf number): 1
+
+
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+shirt
+	Item information for shirt:
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+sock
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+pant
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+blouse
+	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: blouse	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: shirt
+Enter the new amount: 10
+	Updated item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+You know the options: 5
+The inventory has information about the following 6 items: 
+	Item information for sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 6 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+The inventory has a total of 9 items with a cumulative price of $171.95 on shelf 3
+	Item information for T-shirt:
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 13 items with a cumulative price of $229.97 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: sock
+Enter the new amount: 0
+Info for sock has been deleted.
+You know the options: 5
+The inventory has information about the following 5 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 5 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 13 items with a cumulative price of $229.97 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 2
+Enter the name of the item you want deleted: 
+shirt
+Info for shirt has been deleted.
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+sock
+	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: T-shirt
+Enter the new amount: 8
+	Updated item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 5
+The inventory has information about the following 4 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 4 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+The inventory has a total of 8 items with a cumulative price of $79.92 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: sock
+	Enter number of items of this type: 7
+	Enter the price of items of this type: 2.99
+	Enter the location of this item (shelf number): 2
+
+
+You know the options: 5
+The inventory has information about the following 5 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for sock
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+You know the options: 6
+The inventory has information about the following 5 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+	Item information for sock:
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+The inventory has a total of 7 items with a cumulative price of $20.93 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+The inventory has a total of 8 items with a cumulative price of $79.92 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+You know the options: 0
+Goodbye!

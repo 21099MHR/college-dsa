@@ -1,0 +1,414 @@
+Select from the following options: 
+
+ 0. Exit the program 
+ 1. Add an item 
+ 2. Delete an item 
+ 3. Display info about an item 
+ 4. Update an item 
+ 5. Display Inventory content 
+ 6. Display info about items by Shelf 
+ 7. Display info about the most/least expensive item
+Make your menu selection now: 2
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+	Error: no items in the inventory.
+You know the options: 
+You are now adding a new item to the inventory. 
+	Enter name of the item: sock
+	Enter number of items of this type: 5
+	Enter the price of items of this type: 1.99
+	Enter the location of this item (shelf number): 3
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shoe
+	Enter number of items of this type: 2
+	Enter the price of items of this type: 50.0
+	Enter the location of this item (shelf number): 1
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shirt
+	Enter number of items of this type: 5
+	Enter the price of items of this type: 20.0
+	Enter the location of this item (shelf number): 4
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: skirt
+	Enter number of items of this type: 4
+	Enter the price of items of this type: 40.5
+	Enter the location of this item (shelf number): 3
+
+
+You know the options: 5
+The inventory has information about the following 4 items: 
+	Item information for sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+You know the options: 6
+The inventory has information about the following 4 items: 
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 2 items with a cumulative price of $100.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+The inventory has a total of 9 items with a cumulative price of $171.95 on shelf 3
+	Item information for shirt:
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 5 items with a cumulative price of $100.0 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: shoe
+This item already exists in the inventory! Please specify another item: 	Enter number of items of this type: 3
+	Enter the price of items of this type: 9.99
+	Enter the location of this item (shelf number): 4
+
+
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: pant
+	Enter number of items of this type: 2
+	Enter the price of items of this type: 25.5
+	Enter the location of this item (shelf number): 1
+
+
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+shirt
+	Item information for shirt:
+		Amount : 5
+		Price : 20.0
+		Location (shelf number) : 4
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+sock
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+pant
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+blouse
+	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: blouse
+	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: shirt
+
+Enter the new amount: 	Updated item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+You know the options: 5
+The inventory has information about the following 6 items: 
+	Item information for sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 6 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for sock:
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+The inventory has a total of 9 items with a cumulative price of $171.95 on shelf 3
+	Item information for T-shirt:
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 13 items with a cumulative price of $229.97 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 5
+		Price : 1.99
+		Location (shelf number) : 3
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: sock
+
+Enter the new amount: Info for sock has been deleted.
+You know the options: 5
+The inventory has information about the following 5 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for shirt
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 5 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for shirt:
+		Amount : 10
+		Price : 20.0
+		Location (shelf number) : 4
+The inventory has a total of 13 items with a cumulative price of $229.97 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is T-shirt
+		Amount : 3
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 2
+Enter the name of the item you want deleted: 
+shirt
+Info for shirt has been deleted.
+You know the options: 3
+Enter the name of the item in the inventory to search for: 
+sock
+	No such item in the inventory.
+
+You know the options: 4
+Enter the name of the item in the inventory to update the amount: T-shirt
+
+Enter the new amount: 	Updated item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 5
+The inventory has information about the following 4 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+You know the options: 6
+The inventory has information about the following 4 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+The inventory has a total of 0 items with a cumulative price of $0.0 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+The inventory has a total of 8 items with a cumulative price of $79.92 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+You know the options: 1
+You are now adding a new item to the inventory. 
+	Enter name of the item: sock
+	Enter number of items of this type: 7
+	Enter the price of items of this type: 2.99
+	Enter the location of this item (shelf number): 2
+
+
+You know the options: 5
+The inventory has information about the following 5 items: 
+	Item information for shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	Item information for skirt
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+	Item information for T-shirt
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+	Item information for pant
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for sock
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+You know the options: 6
+The inventory has information about the following 5 items: 
+	Item information for pant:
+		Amount : 2
+		Price : 25.5
+		Location (shelf number) : 1
+	Item information for shoe:
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+The inventory has a total of 4 items with a cumulative price of $151.0 on shelf 1
+	Item information for sock:
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+The inventory has a total of 7 items with a cumulative price of $20.93 on shelf 2
+	Item information for skirt:
+		Amount : 4
+		Price : 40.5
+		Location (shelf number) : 3
+The inventory has a total of 4 items with a cumulative price of $162.0 on shelf 3
+	Item information for T-shirt:
+		Amount : 8
+		Price : 9.99
+		Location (shelf number) : 4
+The inventory has a total of 8 items with a cumulative price of $79.92 on shelf 4
+You know the options: 7
+	The most expensive item in the inventory is shoe
+		Amount : 2
+		Price : 50.0
+		Location (shelf number) : 1
+	The least expensive item in the inventory is sock
+		Amount : 7
+		Price : 2.99
+		Location (shelf number) : 2
+You know the options: 0
+Goodbye!
