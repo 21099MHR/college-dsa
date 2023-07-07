@@ -1,0 +1,159 @@
+Select from the following: 
+	0. Exit
+	1. Insert item at back
+	2. Insert item at front
+	3. Remove item from front
+	4. Remove item from back
+	5. Display front item
+	6. Display last item
+	7. Clear collection
+	8. Display content of collection
+
+
+Make your selection now: 3
+Queue empty!
+
+
+Make your selection now: 4
+Queue empty!
+
+
+Make your selection now: 7
+
+Queue cleared.
+
+
+Make your selection now: 1
+
+Item to be added at back: Agumon
+Agumon has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added at back: Gabumon
+Gabumon has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added at back: Tentomon
+Tentomon has been added to back of queue.
+
+
+Make your selection now: 2
+
+Item to be added at front: Veemon
+
+Veemon has been added to front of queue.
+
+
+Make your selection now: 2
+
+Item to be added at front: Garurumon
+
+Garurumon has been added to front of queue.
+
+
+Make your selection now: 5
+
+Front item of queue: Garurumon
+
+
+Make your selection now: 6
+
+Back item of queue: Tentomon
+
+
+Make your selection now: 8
+
+Contents of queue: Garurumon Veemon Agumon Gabumon Tentomon 
+
+
+Make your selection now: 3
+
+Garurumon has been removed from the front of the queue.
+
+
+Make your selection now: 4
+
+Tentomon has been removed from the back of the queue.
+
+
+Make your selection now: 7
+
+Queue cleared.
+
+
+Make your selection now: 8
+Queue empty!
+
+
+Make your selection now: 1
+
+Item to be added at back: Omnimon
+Omnimon has been added to back of queue.
+
+
+Make your selection now: 2
+
+Item to be added at front: WarGreymon
+WarGreymon has been added to front of queue.
+
+
+Make your selection now: 2
+
+Item to be added at front: MetalGarurumon
+MetalGarurumon has been added to front of queue.
+
+
+Make your selection now: 2
+
+Item to be added at front: Rosemon
+
+Rosemon has been added to front of queue.
+
+
+Make your selection now: 5
+
+Front item of queue: Rosemon
+
+
+Make your selection now: 3
+
+Rosemon has been removed from the front of the queue.
+
+
+Make your selection now: 5
+
+Front item of queue: MetalGarurumon
+
+
+Make your selection now: 3
+
+MetalGarurumon has been removed from the front of the queue.
+
+
+Make your selection now: 5
+
+Front item of queue: WarGreymon
+
+
+Make your selection now: 3
+
+WarGreymon has been removed from the front of the queue.
+
+
+Make your selection now: 8
+
+Contents of queue: Omnimon 
+
+
+Make your selection now: 7
+
+Queue cleared.
+
+
+Make your selection now: 0
+
+Exiting program... Goodbye!
