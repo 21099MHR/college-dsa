@@ -1,0 +1,239 @@
+Welcome to the Common A.T.M. Stock Exchange Center!
+Enter amount of Amazon stock available: 3
+Enter amount of Tesla stock available: 1
+Enter amount of Microsoft stock available: 2
+
+Select from the following menu:
+ 0. Display Stock and Exit
+ 1. Customer enters with request to buy stock
+ 2. Customer enters with request to sell stock
+ 4. Display customers waiting to be served and their requests
+ 5. Display pending requests waiting to be processed
+ 6. Process pending requests
+ 7. Display number of customers that have been served
+ 8. Display total amount of stock that has been traded
+
+
+Make your selection now: 3
+No customer is waiting to be served!
+
+Make your selection now: 4
+No customer is waiting to be served!
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+No customers have been served yet.
+
+Make your selection now: 8
+Total stock traded: 0 Amazon, 0 Tesla, and 0 Microsoft
+
+Make your selection now: 1
+Welcome! Name, please: Eevee
+
+How much Amazon stock do you want: 2
+
+How much Tesla stock do you want: 0
+
+How much Microsoft stock do you want: 0
+Eevee requesting 2 Amazon, 0 Tesla, and 0 Microsoft stock is now waiting.
+
+Make your selection now: 1
+Welcome! Name, please: Mudkip
+
+How much Amazon stock do you want: 2
+
+How much Tesla stock do you want: 1
+
+How much Microsoft stock do you want: 1
+Mudkip requesting 2 Amazon, 1 Tesla, and 1 Microsoft stock is now waiting.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+Eevee requesting 2 Amazon, 0 Tesla, and 0 Microsoft stock
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+No customers have been served yet.
+
+Make your selection now: 8
+Total stock traded: 0 Amazon, 0 Tesla, and 0 Microsoft
+
+Make your selection now: 3
+Eevee is leaving with 2 Amazon, 0 Tesla, and 0 Microsoft stock.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+1 customer has been served.
+
+Make your selection now: 8
+Total stock traded: 2 Amazon, 0 Tesla, and 0 Microsoft
+
+Make your selection now: 3
+Mudkip is leaving with 2 Amazon, 1 Tesla, and 1 Microsoft stock.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+2 customers have been served.
+
+Make your selection now: 8
+Total stock traded: 4 Amazon, 1 Tesla, and 1 Microsoft
+
+Make your selection now: 6
+No customer is waiting to be served!
+
+Make your selection now: 2
+Welcome, your name, please: 
+How much Amazon stock are you selling: 
+How much Tesla stock are you selling: 
+How much Microsoft stock are you selling: 
+Thanks, Snivy, here is your receipt for the 3 Amazon, 0 Tesla, and 0 Microsoft stock!
+
+Make your selection now: 1
+Welcome! Name, please: Tepig
+
+How much Amazon stock do you want: 4
+
+How much Tesla stock do you want: 2
+
+How much Microsoft stock do you want: 1
+Tepig requesting 4 Amazon, 2 Tesla, and 1 Microsoft stock is now waiting.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+Mudkip requesting 2 Amazon, 1 Tesla, and 1 Microsoft stock
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+2 customers have been served.
+
+Make your selection now: 8
+Total stock traded: 4 Amazon, 1 Tesla, and 1 Microsoft
+
+Make your selection now: 1
+Welcome! Name, please: Abra
+
+How much Amazon stock do you want: 5
+
+How much Tesla stock do you want: 3
+
+How much Microsoft stock do you want: 2
+Abra requesting 5 Amazon, 3 Tesla, and 2 Microsoft stock is now waiting.
+
+Make your selection now: 1
+Welcome! Name, please: Mew
+
+How much Amazon stock do you want: 2
+
+How much Tesla stock do you want: 1
+
+How much Microsoft stock do you want: 1
+Mew requesting 2 Amazon, 1 Tesla, and 1 Microsoft stock is now waiting.
+
+Make your selection now: 1
+Welcome! Name, please: Pikachu
+
+How much Amazon stock do you want: 2
+
+How much Tesla stock do you want: 2
+
+How much Microsoft stock do you want: 1
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock is now waiting.
+
+Make your selection now: 1
+Welcome! Name, please: Pidove
+
+How much Amazon stock do you want: 3
+
+How much Tesla stock do you want: 6
+
+How much Microsoft stock do you want: 2
+Pidove requesting 3 Amazon, 6 Tesla, and 2 Microsoft stock is now waiting.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+Mudkip requesting 2 Amazon, 1 Tesla, and 1 Microsoft stock
+Tepig requesting 4 Amazon, 2 Tesla, and 1 Microsoft stock
+Abra requesting 5 Amazon, 3 Tesla, and 2 Microsoft stock
+Mew requesting 2 Amazon, 1 Tesla, and 1 Microsoft stock
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock
+
+Make your selection now: 5
+No customer is waiting to be served!
+
+Make your selection now: 7
+2 customers have been served.
+
+Make your selection now: 8
+Total stock traded: 4 Amazon, 1 Tesla, and 1 Microsoft
+
+Make your selection now: 3
+Mudkip is leaving with 2 Amazon, 1 Tesla, and 1 Microsoft stock.
+
+Make your selection now: 3
+Tepig's requests for 4 Amazon, 2 Tesla, and 1 Microsoft stock is now pending. Goodbye, Tepig. We will let you
+know when your request is processed!
+
+Make your selection now: 3
+Abra's requests for 5 Amazon, 3 Tesla, and 2 Microsoft stock is now pending. Goodbye, Abra. We will let you
+know when your request is processed!
+
+Make your selection now: 3
+Mew is leaving with 2 Amazon, 1 Tesla, and 1 Microsoft stock.
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock
+
+Make your selection now: 5
+The following requests are pending: 
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock
+
+Make your selection now: 7
+4 customers have been served.
+
+Make your selection now: 8
+Total stock traded: 8 Amazon, 3 Tesla, and 3 Microsoft
+
+Make your selection now: 6
+No request could be processed!
+
+Make your selection now: 4
+The following customers are waiting to be served: 
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock
+
+Make your selection now: 5
+The following requests are pending: 
+Pikachu requesting 2 Amazon, 2 Tesla, and 1 Microsoft stock
+
+Make your selection now: 7
+4 customers have been served.
+
+Make your selection now: 8
+Total stock traded: 8 Amazon, 3 Tesla, and 3 Microsoft
+
+Make your selection now: 2
+Welcome, your name, please: 
+How much Amazon stock are you selling: 
+How much Tesla stock are you selling: 
+How much Microsoft stock are you selling: 
+Thanks, Meloetta, here is your receipt for the 10 Amazon, 10 Tesla, and 10 Microsoft stock!
+
+Make your selection now: 6
+Abra's request for 5 Amazon, 3 Tesla, and 2 Microsoft stock has been fulfilled and the customer has been notified.
+Tepig's request for 4 Amazon, 2 Tesla, and 1 Microsoft stock has been fulfilled and the customer has been notified.

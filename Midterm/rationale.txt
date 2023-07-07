@@ -1,0 +1,15 @@
+My rationale for using the two SLS based databases for this midterm was simple;
+they were effective, simple, and provided the utility I needed for this
+assignment.
+
+A Queue was exactly the type of database I needed for processing the first-come,
+first-serve type of input. Enqueue and Dequeue were the perfect tools for the
+job, and the SLS based Queue kept size down by only allocating memory as it was
+needed.
+
+As for the Stack, its similar; the Stack's push and pop were the tools I needed
+in order to handle the FILO style of handling in the pending stack, and again
+kept the size down by only allocating memory as required.
+
+The methods were also incredibly easy to implement for the assignment, and
+provided adequate utility.
