@@ -1,0 +1,6 @@
+
+This lab was a doozy, mostly on how to start it.
+
+It gave me a really good reminder of when to use certain collection methods; you wouldn't be making Battleship with an ArrayList, for example.
+
+Overall, a fun little lab, if you ignore the trubleshooting I had to do towards the end.

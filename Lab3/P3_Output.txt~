@@ -1,0 +1,85 @@
+
+Select from the following menu:
+	1. Insert item to list
+	2. Remove item from list
+	3. Get item from list
+	4. Clear list
+	5. Print size and content of list
+	6. Delete largest item in the list.
+	7. Reverse list
+	8. Exit program
+
+Make your selection now: 0
+1st String to test: a
+2nd String to test: a
+
+a compared to a: 0
+
+Make your selection now: 0
+1st String to test: a
+2nd String to test: b
+
+a compared to b: -1
+
+Make your selection now: 0
+1st String to test: !
+2nd String to test: a
+
+! compared to a: -64
+
+Make your selection now: 0
+1st String to test: ~
+2nd String to test: !
+
+~ compared to !: 93
+
+Make your selection now: 0
+1st String to test: A
+2nd String to test: a
+
+A compared to a: -32
+
+Make your selection now: 0
+1st String to test: a
+2nd String to test: A
+
+a compared to A: 32
+
+Make your selection now: 0
+1st String to test: aeiou
+2nd String to test: aeeiou
+
+aeiou compared to aeeiou: 4
+
+Make your selection now: 0
+1st String to test: Aeiou
+2nd String to test: Aeeiou
+
+Aeiou compared to Aeeiou: 4
+
+Make your selection now: 0
+1st String to test:  
+2nd String to test: a
+
+  compared to a: -65
+
+Make your selection now: 0
+1st String to test: -
+2nd String to test: +
+
+- compared to +: 2
+
+Make your selection now: 0
+1st String to test: -
+2nd String to test: =
+
+- compared to =: -16
+
+Make your selection now: 0
+1st String to test: +
+2nd String to test: =
+
++ compared to =: -18
+
+Make your selection now: 8
+Exiting program...Good Bye

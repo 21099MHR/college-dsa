@@ -1,0 +1,163 @@
+
+Select from the following menu:
+	1. Insert item to list
+	2. Remove item from list
+	3. Get item from list
+	4. Clear list
+	5. Print size and content of list
+	6. Delete largest item in the list.
+	7. Reverse list
+	8. Exit program
+
+Make your selection now: 5
+List is empty.
+
+Make your selection now: 6
+List empty, nothing to delete!
+
+Make your selection now: 7
+List is empty... nothing to reverse!
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Data
+	Enter position to insert item in: 0
+
+Item Data inserted at position 0 in the list.
+
+Make your selection now: 5
+List of size 1 has the following items: Data 
+Make your selection now: 7
+List reversed
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Beverly
+	Enter position to insert item in: 0
+
+Item Beverly inserted at position 0 in the list.
+
+Make your selection now: 5
+List of size 2 has the following items: Beverly Data 
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Jean-Luc
+	Enter position to insert item in: 5
+
+Position specified is out of range!
+
+Make your selection now: 5
+List of size 2 has the following items: Beverly Data 
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Jean-Luc
+	Enter position to insert item in: 2
+
+Item Jean-Luc inserted at position 2 in the list.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Geordi
+	Enter position to insert item in: 2
+
+Item Geordi inserted at position 2 in the list.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Worf
+	Enter position to insert item in: 3
+
+Item Worf inserted at position 3 in the list.
+
+Make your selection now: 5
+List of size 5 has the following items: Beverly Data Geordi Worf Jean-Luc 
+Make your selection now: 7
+List reversed
+
+Make your selection now: 7
+List reversed
+
+Make your selection now: 6
+Largest item Worf deleted.
+
+Make your selection now: 5
+List of size 4 has the following items: Beverly Data Geordi Jean-Luc 
+Make your selection now: 7
+List reversed
+
+Make your selection now: 7
+List reversed
+
+Make your selection now: 2
+	Enter position to remove item from: 9
+
+Position specified is out of range!
+
+Make your selection now: 2
+	Enter position to remove item from: 3
+
+Item Jean-Luc removed from position 3 in the list.
+
+Make your selection now: 5
+List of size 3 has the following items: Beverly Data Geordi 
+Make your selection now: 2
+	Enter position to remove item from: 0
+
+Item Beverly removed from position 0 in the list.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: Will
+	Enter position to insert item in: 0
+
+Item Will inserted at position 0 in the list.
+
+Make your selection now: 5
+List of size 3 has the following items: Will Data Geordi 
+Make your selection now: 3
+	
+Enter position to retrieve item from: 2
+
+Item Geordi retrieved from position 2 in the list.
+
+Make your selection now: 3
+	
+Enter position to retrieve item from: 0
+
+Item Will retrieved from position 0 in the list.
+
+Make your selection now: 3
+	
+Enter position to retrieve item from: 8
+
+Position specified is out of range!
+
+Make your selection now: 5
+List of size 3 has the following items: Will Data Geordi 
+Make your selection now: 6
+Largest item Will deleted.
+
+Make your selection now: 5
+List of size 2 has the following items: Data Geordi 
+Make your selection now: 6
+Largest item Geordi deleted.
+
+Make your selection now: 5
+List of size 1 has the following items: Data 
+Make your selection now: 4
+
+Make your selection now: 5
+List is empty.
+
+Make your selection now: 7
+List is empty... nothing to reverse!
+
+Make your selection now: 8
+Exiting program...Good Bye

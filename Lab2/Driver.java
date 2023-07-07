@@ -1,0 +1,124 @@
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 2 Problem 1
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 02/4/20
+
+ * Submitted:  02/4/20
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.02.4
+
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Driver {
+
+    static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        ListArrayListBasedPlus items = new 	ListArrayListBasedPlus();
+        boolean switchOn = true;
+
+        System.out.println("\nSelect from the following menu: \n\t0. Exit program\n\t"
+                           + "1. Insert item to list\n\t2. Remove item from list\n\t"
+                           + "3. Get item from list\n\t4. Clear list\n\t5. Print size and content of list"
+                           + "\n\t6. Reverse list");
+
+        while(switchOn == true)
+        {
+            System.out.print("\nMake your selection now: ");
+            int selection = Integer.parseInt(stdin.readLine().trim());
+            System.out.println(selection);
+
+            switch(selection)
+            {
+            case 0:
+                switchOn = false;
+                System.out.print("Exiting program...Good Bye");
+                break;
+            case 1:
+                System.out.print("\nYou are now inserting an item into the list.\n\tEnter item: ");
+                Object item = stdin.readLine().trim();
+                System.out.println(item);
+
+                System.out.print("\tEnter position to insert item in: ");
+                int index = Integer.parseInt(stdin.readLine().trim());
+                System.out.println(index);
+
+                if(index >= items.size()+1)
+                {
+                    System.out.println("\nPosition specified is out of range!");
+                }
+                else
+                {
+                    items.add(index, item);
+                    System.out.println("\nItem " + item + " inserted at position " + index + " in the list.");
+                }
+                break;
+            case 2:
+                System.out.print("\tEnter position to remove item from: ");
+                int toRemove = Integer.parseInt(stdin.readLine().trim());
+                System.out.println(toRemove);
+
+                if((toRemove >= items.size()) || (toRemove < 0))
+                {
+                    System.out.println("\nPosition specified is out of range!");
+                }
+                else
+                {
+                    System.out.println("\nItem " + items.get(toRemove) + " removed from position " + toRemove + " in the list.");
+                    items.remove(toRemove);
+                }
+                break;
+            case 3:
+                System.out.print("\t\nEnter position to retrieve item from: ");
+                int toRetrieve = Integer.parseInt(stdin.readLine().trim());
+                System.out.println(toRetrieve);
+
+                if((toRetrieve >= items.size()) || (toRetrieve < 0))
+                {
+                    System.out.println("\nPosition specified is out of range!");
+                }
+                else
+                {
+                    System.out.println("\nItem " + items.get(toRetrieve) + " retrieved from position " + toRetrieve + " in the list.");
+                }
+                break;
+            case 4:
+                items.removeAll();
+                break;
+            case 5:
+
+                if(items.size() == 0)
+                {
+                    System.out.println("List is empty.");
+                }
+                else
+                {
+                    System.out.print("List of size " + items.size() + " has the following items: ");
+
+                    for(int i = 0; i < items.size(); i++)
+                    {
+                        System.out.print(items.get(i) + " ");
+                    }
+                }
+                break;
+            case 6:
+                items.reverseArray();
+                System.out.println("List reversed");
+                break;
+            }
+        }
+
+    }
+}

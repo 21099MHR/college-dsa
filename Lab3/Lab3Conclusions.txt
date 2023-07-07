@@ -1,0 +1,12 @@
+LAB 3 CONCLUSIONS
+
+Lab 3 was interesting - it really sold how inefficient Arrays and ArrayLists can be, even when they do have their uses occasionally.
+
+I've never had to reverse a collection myself, honestly, or at least never a
+LinkedList. Figuring that out was cool but I feel like there's a much, MUCH
+more efficient way of going about that.
+
+My greatest takeaway is that LinkedLists are slightly more complex to work with
+than an Array but the benefits are much greater. Additionally, if you can get
+the Collection working with an Array/ArrayList, its incredibly easy to convert
+it over to a LinkedList by minor tweaks.
