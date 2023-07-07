@@ -1,0 +1,38 @@
+Enter number of people: 3
+Enter name number 1: John
+
+Enter name number 2: Jane
+
+Enter name number 3: Joe
+
+John, Jane, and Joe shout Hello Class!!!
+Enter number of people: 1
+Enter name number 1: Joe
+
+Joe shouts Hello Class!!!
+Enter number of people: 2
+Enter name number 1: John
+
+Enter name number 2: Jane
+
+Johnand Jane shout Hello Class!!!
+Enter number of people: 3
+Enter name number 1: John
+
+Enter name number 2: Jane
+
+Enter name number 3: Joe
+
+John, Jane, and Joe shout Hello Class!!!
+Enter number of people: 5
+Enter name number 1: John
+
+Enter name number 2: Jane
+
+Enter name number 3: Joe
+
+Enter name number 4: Jack
+
+Enter name number 5: Jim
+
+John, Jane, Joe, Jack, and Jim shout Hello Class!!!

@@ -1,0 +1,5 @@
+Lab 1 caught me off guard initially because my Java was incredibly rough going into DSA but I feel like I gained a lot out of this.
+
+Arrays and iterating over them isn't nearly as big of a headache as I remember them being, it gave me an excuse to build a simple UI which was a fun time.
+
+Overall, it just reminded me that I *can* do programming if I sit down, shut up, and actually put my mind to it.
