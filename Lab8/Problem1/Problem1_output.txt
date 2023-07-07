@@ -1,0 +1,52 @@
+
+Select from the following menu: 
+	1.Insert item into list.
+	2. Remove item from list.
+	3. Get item from list.
+	4. Search for a specified item in the list.
+	5. Clear list.
+	6. Print size and content of list.
+	7. Exit program.
+
+Make your selection now: 4
+List is empty!
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: a
+	Enter position to insert item in: 0
+
+Item a inserted at position 0 in the list.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: b
+	Enter position to insert item in: 0
+
+Item b inserted at position 0 in the list.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: c
+	Enter position to insert item in: 0
+
+Item c inserted at position 0 in the list.
+
+Make your selection now: 4
+Specify item to search for: Item a found at Index 2.
+
+Make your selection now: 4
+Specify item to search for: Item b found at Index 1.
+
+Make your selection now: 4
+Specify item to search for: Item c found at Index 0.
+
+Make your selection now: 4
+Specify item to search for: Item d not found in list.
+Would be inserted at Index 3.
+
+Make your selection now: 7
+Exiting program...Good Bye

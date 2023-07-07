@@ -1,0 +1,11 @@
+Everything runs perfectly fine for Problems 1 and 2, there is an issue with
+Problem 3.
+
+My implementation failed somewhere, and while it *compiles*, the sample
+output shows how the inserted items are in the wrong order. b should be after
+a and its clearly not.
+
+In addition, I couldn't figure out how to get it to print where items are in a
+clean fashion... or at all.
+
+Those are the only *glaring* issues with this lab.

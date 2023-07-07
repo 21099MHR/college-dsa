@@ -1,0 +1,11 @@
+This lab was tricky, and a large part of it was due to having a massive 2 week
+break between when it was assigned and when it was due... which tells me I
+need to work on how I budget my time.
+
+Which is, to say, literally any better than I have the past couple weeks.
+
+As for the lab itself, it definitely nailed down the idea that recursion is not
+a band-aid fix to a code's problems, and can occasionally just make things
+even worse if you're not careful.
+
+It has its place, for sure, but its a very specific tool.

@@ -1,0 +1,18 @@
+Lab 9 was a ride.
+
+Bubble Sort and Improved Bubble sort were simple enough to grasp, and as such
+were done fairly easily, but I hit a brick wall regarding the latter two
+methods of sorting.
+
+I understood at a fundamental level what I was doing, but it just... wasn't
+clicking until today - Tuesday, April 14th - when I realized what I was doing
+incorrectly.
+
+I was overcomplicating things when the answer was glaringly obvious.
+
+I tried to set the two for loops as 0 and 1 so they were parallel - no. That
+didn't work whatsoever. Once I had the thought to make one start at the end?
+Everything worked out.
+
+It also led me to figuring out how to do 'true' randomness but it was such a
+hassle to set up for this project that I opted not to.

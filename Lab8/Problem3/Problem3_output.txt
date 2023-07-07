@@ -1,0 +1,44 @@
+
+Select from the following menu: 
+	1.Insert item into list.
+	2. Remove item from list.
+	3. Get item from list.
+	4. Search for a specified item in the list.
+	5. Clear list.
+	6. Print size and content of list.
+	7. Exit program.
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: a
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: b
+
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: 0
+
+Make your selection now: 6
+List of size 3 has the following items: 0 b a 
+Make your selection now: 1
+
+You are now inserting an item into the list.
+	Enter item: 1
+
+Make your selection now: 4
+Specify item to search for: Item found at Index 3.
+
+Make your selection now: 4
+Specify item to search for: 
+Make your selection now: 4
+Specify item to search for: Item found at Index 0.
+
+Make your selection now: 4
+Specify item to search for: 
+Make your selection now: 7
+Exiting program...Good Bye

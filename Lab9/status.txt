@@ -1,0 +1,6 @@
+The program itself - for once! - compiles and runs correctly. No major issues.
+
+One small issue is that I hard-coded the Array's size to 5; I couldn't figure
+out for the life of me how to set up an Array with a passed in size. Apologies.
+
+As for Part B, I just don't understand Big O notation. Once again, my apologies.

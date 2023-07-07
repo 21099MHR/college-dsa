@@ -1,0 +1,110 @@
+Welcome to the Sorting Program!
+What type of input would you like to use?
+1. User Input
+2. Random Input
+3. Exit Program
+
+Make your selection now: 1
+Please insert your integers now: 
+
+Integer 0: 5
+
+Integer 1: 4
+
+Integer 2: 3
+
+Integer 3: 2
+
+Integer 4: 1
+
+Bubble Sort Loops: 4
+Swaps: 20
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+Improved Bubble Sort Loops: 4
+Swaps: 20
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Selection Sort Loops: 15
+Swaps: 4
+Comparisons: 10
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Insertion Sort Loops: 20
+Shifts: 10
+Comparisons: 15
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Make your selection now: 1
+Please insert your integers now: 
+
+Integer 0: 1
+
+Integer 1: 2
+
+Integer 2: 3
+
+Integer 3: 4
+
+Integer 4: 5
+
+Bubble Sort Loops: 4
+Swaps: 0
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+Improved Bubble Sort Loops: 0
+Swaps: 0
+Comparisons: 0
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Selection Sort Loops: 15
+Swaps: 0
+Comparisons: 10
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Insertion Sort Loops: 20
+Shifts: 0
+Comparisons: 15
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Make your selection now: 2
+
+What upper bound do you want to set?
+Make your selection now: 100
+
+Original Array: 39, 81, 76, 97, 62
+
+Bubble Sort Loops: 4
+Swaps: 8
+Comparisons: 16
+Sorted Array: 39, 62, 76, 81, 97
+
+Improved Bubble Sort Loops: 2
+Swaps: 8
+Comparisons: 8
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Selection Sort Loops: 15
+Swaps: 4
+Comparisons: 10
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Insertion Sort Loops: 20
+Shifts: 4
+Comparisons: 15
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Make your selection now: 3
+Exiting program... Goodbye!

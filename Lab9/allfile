@@ -1,0 +1,438 @@
+::::::::::::::
+Driver.java
+::::::::::::::
+/*
+ * Purpose: Data Structure and Algorithms Lab X Problem Y [instantiate X and Y]
+ * Status: Complete and thoroughly tested/Incomplete/ Barely started [choose only one!!!]
+ * Last update: 4/14/20
+ * Submitted:  4/14/20
+ * Comment: test suite and sample run attached
+ * @author: John Doe
+ * @version: 2020.14.04
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
+
+public class Driver {
+
+
+
+    static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));
+
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        boolean switchOn = true;
+        int[] array = {0, 0, 0, 0, 0};
+        Random rand = new Random();
+
+        System.out.print("Welcome to the Sorting Program!\n"
+                         + "What type of input would you like to use?"
+                         + "\n1. User Input"
+                         + "\n2. Random Input"
+                         + "\n3. Exit Program\n");
+
+
+        while(switchOn == true)
+        {
+            System.out.print("\nMake your selection now: ");
+            int input = Integer.parseInt(stdin.readLine());
+            System.out.println(input);
+
+            switch(input)
+            {
+            case 1:
+                System.out.println("Please insert your integers now: ");
+                for(int i = 0; i < 5; i++)
+                {
+                    System.out.print("\nInteger " + i + ": ");
+                    int toAdd = Integer.parseInt(stdin.readLine());
+                    System.out.println(toAdd);
+                    array[i] = toAdd;
+                }
+
+                bubbleSort(array);
+                improvedBubbleSort(array);
+                selectionSort(array);
+                insertionSort(array);
+
+                break;
+
+            case 2:
+                System.out.print("\nWhat upper bound do you want to set?"
+                                 + "\nMake your selection now: ");
+                int upperBound = Integer.parseInt(stdin.readLine());
+                System.out.println(upperBound);
+
+                while(upperBound <= 0)
+                {
+                    System.out.println("\nMust be a positive number!");
+                    upperBound = Integer.parseInt(stdin.readLine()) + 1;
+                }
+
+                for(int i = 0; i < 5; i++)
+                {
+                    array[i] = rand.nextInt(upperBound);
+
+
+                }
+
+                System.out.print("\nOriginal Array: ");
+                for(int i = 0; i < array.length; i++)
+                {
+                    if(i < array.length-1)
+                    {
+                        System.out.print(array[i] + ", ");
+                    }
+                    else
+                    {
+                        System.out.println(array[i]);
+                    }
+                }
+
+                bubbleSort(array);
+                improvedBubbleSort(array);
+                selectionSort(array);
+                insertionSort(array);
+                break;
+
+            case 3:
+                switchOn = false;
+                System.out.println("Exiting program... Goodbye!");
+                break;
+            default:
+                break;
+            }
+
+        }
+    }
+
+
+
+    public static void bubbleSort(int[] array)
+    {
+        int[] cloneArray = array.clone();
+        int count = 0;
+        int comparisons = 0;
+        int swaps = 0;
+
+        for(int c = cloneArray.length-1; c > 0; c--)
+        {
+            count++;
+            for(int i = cloneArray.length-1; i > 0; i--)
+            {
+                comparisons++;
+                if(cloneArray[i] < cloneArray[i-1])
+                {
+                    int holding = cloneArray[i];
+                    cloneArray[i] = cloneArray[i-1];
+                    cloneArray[i-1] = holding;
+                    swaps = swaps+2;
+                }
+            }
+        }
+        System.out.println("\nBubble Sort Loops: " + count);
+        System.out.println("Swaps: " + swaps);
+        System.out.println("Comparisons: " + comparisons);
+        System.out.print("Sorted Array: ");
+        for(int i = 0; i < cloneArray.length; i++)
+        {
+            if(i < array.length-1)
+            {
+                System.out.print(cloneArray[i] + ", ");
+            }
+            else
+            {
+                System.out.println(cloneArray[i] + "\n");
+            }
+        }
+    }
+
+    public static void improvedBubbleSort(int[] array)
+    {
+        int[] cloneArrayTwo = array.clone();
+        int count = 0;
+        int swaps = 0;
+        int comparisons = 0;
+
+        while
+        ((	cloneArrayTwo[0] > cloneArrayTwo[1])
+                || (cloneArrayTwo[1] > cloneArrayTwo[2])
+                || (cloneArrayTwo[2] > cloneArrayTwo[3])
+                || 	(cloneArrayTwo[3] > cloneArrayTwo[4]))
+        {
+            count++;
+            for(int i = cloneArrayTwo.length-1; i > 0; i--)
+            {
+                comparisons++;
+                if(cloneArrayTwo[i] < cloneArrayTwo[i-1])
+                {
+                    int holding = cloneArrayTwo[i];
+                    cloneArrayTwo[i] = cloneArrayTwo[i-1];
+                    cloneArrayTwo[i-1] = holding;
+                    swaps = swaps+2;
+
+                }
+            }
+        }
+
+        System.out.println("Improved Bubble Sort Loops: " + count);
+        System.out.println("Swaps: " + swaps);
+        System.out.println("Comparisons: " + comparisons);
+        System.out.print("Sorted Array: ");
+        for(int i = 0; i < cloneArrayTwo.length; i++)
+        {
+            if(i < array.length-1)
+            {
+                System.out.print(cloneArrayTwo[i] + ", ");
+            }
+            else
+            {
+                System.out.println(cloneArrayTwo[i] + "\n");
+            }
+        }
+    }
+
+    public static void selectionSort(int[] array)
+    {
+        int[] cloneArrayThree = array.clone();
+
+        int count = 0;
+        int capture = 0;
+        int length = cloneArrayThree.length-1;
+        int swaps = 0;
+        int comparisons = 0;
+
+        for(int index = 0; index <= length; index++)
+        {
+            count++;
+            for(int i = length; i > index; i--)
+            {
+                count++;
+                comparisons++;
+                if(cloneArrayThree[i] < cloneArrayThree[index])
+                {
+                    capture = cloneArrayThree[index];
+                    cloneArrayThree[index] = cloneArrayThree[i];
+                    cloneArrayThree[i] = capture;
+                    swaps = swaps + 2;
+                }
+            }
+        }
+
+        System.out.println("\nSelection Sort Loops: " + count);
+        System.out.println("Swaps: " + swaps);
+        System.out.println("Comparisons: " + comparisons);
+        System.out.print("Sorted Array: ");
+        for(int i = 0; i < cloneArrayThree.length; i++)
+        {
+            if(i < array.length-1)
+            {
+                System.out.print(cloneArrayThree[i] + ", ");
+            }
+            else
+            {
+                System.out.println(cloneArrayThree[i] + "\n");
+            }
+        }
+
+
+    }
+
+    public static void insertionSort(int[]array)
+    {
+        int[] cloneArrayFour = array.clone();
+        int count = 0;
+        int capture = 0;
+        int length = cloneArrayFour.length-1;
+
+        int shifts = 0;
+        int comparisons = 0;
+
+        for(int x = 0; x <= length; x++)
+        {   count++;
+            for(int y = length; y >= x; y--)
+            {
+                count++;
+                comparisons++;
+                if(cloneArrayFour[y] < cloneArrayFour[x])
+                {
+                    capture = cloneArrayFour[y];
+                    for(int i = y; i > x; i--)
+                    {
+                        cloneArrayFour[i] = cloneArrayFour[i-1];
+                        shifts++;
+                    }
+                    cloneArrayFour[x] = capture;
+                }
+            }
+        }
+
+        System.out.println("\nInsertion Sort Loops: " + count);
+        System.out.println("Shifts: " + shifts);
+        System.out.println("Comparisons: " + comparisons);
+        System.out.print("Sorted Array: ");
+        for(int i = 0; i < cloneArrayFour.length; i++)
+        {
+            if(i < array.length-1)
+            {
+                System.out.print(cloneArrayFour[i] + ", ");
+            }
+            else
+            {
+                System.out.println(cloneArrayFour[i] + "\n");
+            }
+        }
+
+    }
+
+}
+
+::::::::::::::
+Lab9_Conclusions.txt
+::::::::::::::
+Lab 9 was a ride.
+
+Bubble Sort and Improved Bubble sort were simple enough to grasp, and as such
+were done fairly easily, but I hit a brick wall regarding the latter two
+methods of sorting.
+
+I understood at a fundamental level what I was doing, but it just... wasn't
+clicking until today - Tuesday, April 14th - when I realized what I was doing
+incorrectly.
+
+I was overcomplicating things when the answer was glaringly obvious.
+
+I tried to set the two for loops as 0 and 1 so they were parallel - no. That
+didn't work whatsoever. Once I had the thought to make one start at the end?
+Everything worked out.
+
+It also led me to figuring out how to do 'true' randomness but it was such a
+hassle to set up for this project that I opted not to.
+::::::::::::::
+output.txt
+::::::::::::::
+Welcome to the Sorting Program!
+What type of input would you like to use?
+1. User Input
+2. Random Input
+3. Exit Program
+
+//WC input
+
+Make your selection now: 1
+Please insert your integers now: 
+
+Integer 0: 5
+
+Integer 1: 4
+
+Integer 2: 3
+
+Integer 3: 2
+
+Integer 4: 1
+
+Bubble Sort Loops: 4
+Swaps: 20
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+Improved Bubble Sort Loops: 4
+Swaps: 20
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Selection Sort Loops: 15
+Swaps: 4
+Comparisons: 10
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Insertion Sort Loops: 20
+Shifts: 10
+Comparisons: 15
+Sorted Array: 1, 2, 3, 4, 5
+
+//BC input
+Make your selection now: 1
+Please insert your integers now: 
+
+Integer 0: 1
+
+Integer 1: 2
+
+Integer 2: 3
+
+Integer 3: 4
+
+Integer 4: 5
+
+Bubble Sort Loops: 4
+Swaps: 0
+Comparisons: 16
+Sorted Array: 1, 2, 3, 4, 5
+
+Improved Bubble Sort Loops: 0
+Swaps: 0
+Comparisons: 0
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Selection Sort Loops: 15
+Swaps: 0
+Comparisons: 10
+Sorted Array: 1, 2, 3, 4, 5
+
+
+Insertion Sort Loops: 20
+Shifts: 0
+Comparisons: 15
+Sorted Array: 1, 2, 3, 4, 5
+
+//Random input
+
+Make your selection now: 2
+
+What upper bound do you want to set?
+Make your selection now: 100
+
+Original Array: 39, 81, 76, 97, 62
+
+Bubble Sort Loops: 4
+Swaps: 8
+Comparisons: 16
+Sorted Array: 39, 62, 76, 81, 97
+
+Improved Bubble Sort Loops: 2
+Swaps: 8
+Comparisons: 8
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Selection Sort Loops: 15
+Swaps: 4
+Comparisons: 10
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Insertion Sort Loops: 20
+Shifts: 4
+Comparisons: 15
+Sorted Array: 39, 62, 76, 81, 97
+
+
+Make your selection now: 3
+Exiting program... Goodbye!
+::::::::::::::
+status.txt
+::::::::::::::
+The program itself - for once! - compiles and runs correctly. No major issues.
+
+One small issue is that I hard-coded the Array's size to 5; I couldn't figure
+out for the life of me how to set up an Array with a passed in size. Apologies.
+
+As for Part B, I just don't understand Big O notation. Once again, my apologies.
