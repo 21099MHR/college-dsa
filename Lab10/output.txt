@@ -1,0 +1,18 @@
+
+Welcome to the Sorting Program!
+Please select select from the following:
+1. Manual input
+2. Random input
+3. Exit program
+
+Make your selection now: 
+Please enter the size of the array to Sort: 
+What upper bound do you want to set?
+Make your selection now: 100
+Original Array: 84, 70, 10, 74, 44, MergeSort Array: 84, 70, 10, 74, 44, Original Array: 84, 70, 10, 74, 44, MergeSort Array: 70, 84, 10, 74, 44, Original Array: 84, 70, 10, 74, 44, MergeSort Array: 10, 70, 84, 74, 44, Original Array: 84, 70, 10, 74, 44, MergeSort Array: 10, 70, 74, 44, 84, Original Array: 10, 70, 74, 44, 84
+
+QuickSort Array: 0, 0, 10, 44, 0
+
+
+
+Make your selection now: Exiting program... Goodbye

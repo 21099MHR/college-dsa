@@ -1,0 +1,475 @@
+::::::::::::::
+ChainNode.java
+::::::::::::::
+class ChainNode<K, V> {
+	private K key;
+	private V value;
+	private ChainNode<K, V> next;
+
+	public ChainNode(K newKey, V newValue, ChainNode<K, V> nextNode) {
+		key = newKey;
+		value = newValue;
+		next = nextNode;
+	} // end constructor
+
+	public V getValue() {
+		return value;
+	} // end getValue
+
+	public K getKey() {
+		return key;
+	} // end getKey
+
+	public ChainNode<K, V> getNext() {
+		return next;
+	} // end getNext
+
+	public void setNext(ChainNode<K, V> next) {
+		this.next = next;
+	} // end setNext
+
+	public String toString() // use (key,value) format
+	{
+		return key.toString() + ", " + value.toString();
+	}
+
+} // end ChainNode::::::::::::::
+Driver.java
+::::::::::::::
+
+/*
+ * Purpose: Data Structure and Algorithms Lab 12 Problems 1/2
+ * Status: Complete
+ * Last update: 4/30/20
+ * Submitted:  04/30/20
+ * Comment: Completed with testbed.
+ * @author: Matthew Ryan
+ * @version: 2020.04.30
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.SocketTimeoutException;
+
+public class Driver {
+
+	static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		HashTable<String, Integer> table = new HashTable<String, Integer>();
+
+		System.out.println("Welcome to the Hashing Program!\nPlease select from the following."
+				+ "\n\n\t0. Exit Program" + "\n\t1. Insert a symbol with an associated value in the table."
+				+ "\n\t2. Delete a symbol from the table."
+				+ "\n\t3. Retrieve and display the value associated with a symbol key from the table."
+				+ "\n\t4. Display hashCode of a symbol key." + "\n\t5. Display content of the symbol table.");
+
+		boolean switchOn = true;
+		while (switchOn == true) {
+			System.out.print("\nMake your selection now: ");
+			int input = Integer.parseInt(stdin.readLine());
+			System.out.println(input);
+			
+			switch (input) {
+			case 0:
+				switchOn = false;
+				System.out.println("Exiting program... Goodbye!");
+				break;
+
+			case 1:
+				System.out.print("Please specify\nKey: ");
+				String key = stdin.readLine();
+				System.out.println(key);
+
+				System.out.print("\nValue: ");
+				int value = Integer.parseInt(stdin.readLine());
+				System.out.println(value);
+
+				if(table.tableInsert(key, value) == false)
+				{
+					System.out.println("Key already exists in table.");
+				}
+				else
+				{
+					System.out.println("Key " + key + " with value of " + value + " has been inserted.");
+				}
+				break;
+
+			case 2:
+				System.out.print("Please specify Key to delete: ");
+				String deleteKey = stdin.readLine();
+				System.out.println(deleteKey);
+				
+				if (table.tableDelete(deleteKey) == true) {
+					System.out.println(deleteKey + " has been deleted.");
+				} else {
+					System.out.println("Key not found.");
+				}
+
+				break;
+
+			case 3:
+				System.out.print("Please specify key to retrieve: ");
+				String retrieveKey = stdin.readLine();
+				System.out.println(retrieveKey);
+				
+				Integer retrieveValue = table.tableRetrieve(retrieveKey);
+				if (retrieveValue == null) {
+					System.out.println("Key not found.");
+				} else {
+					System.out.println("Value of " + retrieveKey + ": " + retrieveValue);
+				}
+
+				break;
+
+			case 4:
+
+				System.out.print("Please specify which key to display hashCode of: ");
+				String hashKey = stdin.readLine();
+				System.out.println(hashKey);
+				
+				if (table.tableRetrieve(hashKey) == null) {
+					System.out.println("Key not found in table.");
+				} else {
+					System.out.println("HashKey of " + hashKey + ": " + table.hashCode(hashKey));
+				}
+
+				break;
+
+			case 5:
+				System.out.println("Contents of symbol table: " + table.toString());
+				break;
+
+			default:
+
+				break;
+			}
+
+		}
+
+	}
+
+}
+::::::::::::::
+HashException.java
+::::::::::::::
+public class HashException extends RuntimeException {
+  public HashException(String s) {
+    super(s);
+  }  // end constructor
+} // end HashException
+::::::::::::::
+HashTableInterface.java
+::::::::::::::
+public interface HashTableInterface<K, V> {
+
+	public boolean tableIsEmpty();
+
+	public int tableLength();
+
+// if key is not already in HashTable inserts association (key,value) and returns true
+// if key is already in the HashTable it does not re-insert and returns false
+	public boolean tableInsert(K key, V value);
+
+// if key is in HashTable deletes the key and its association from the HashTable and returns true
+// if key is not in the HashTable returns false
+	public boolean tableDelete(K searchKey);
+
+//returns the value associated with searchKey in the HashTable or null if the serchKey is not in the HashTable 
+	public V tableRetrieve(K searchKey);
+
+// returns the integer hashCode computed using Horner's rule - assumes K is String 
+	public int hashCode(K key);
+
+//display all (key,value) associations in the HashTable
+	public String toString();
+
+} // end HashTableInterface::::::::::::::
+HashTable.java
+::::::::::::::
+import java.lang.StringBuilder;
+
+// ********************************************************
+// Hash table implementation.
+// Assumption: A table contains unique keys with possibly non-unique associated values
+// *********************************************************
+
+public class HashTable<K, V> implements HashTableInterface<K, V> {
+	private ChainNode[] table; // hash table
+	private int size = 0; // number of entries ((key,value) associations)
+
+	public HashTable() {
+		table = new ChainNode[3];
+	} // end default constructor
+
+// table operations
+	public boolean tableIsEmpty() {
+		return size == 0;
+	} // end tableIsEmpty
+
+	public int tableLength() {
+		return size;
+	} // end tableLength = number of (key,value) associations in the HashTable
+
+//implement the following 5 methods
+
+// if key is not already in HashTable inserts association (key,value) and returns true
+// if key is already in the HashTable it does not re-insert and returns false
+	public boolean tableInsert(K key, V value) {
+
+		boolean DNE = true;
+
+		if (size < table.length) {
+
+			if (size > 0) {
+				for (int i = 0; i < size; i++) {
+					if (table[i].getKey().equals(key)) {
+						DNE = false;
+					}
+				}
+			}
+			
+			if (DNE == true) {
+				ChainNode<K, V> newNode = new ChainNode(key, value, null);
+				table[size] = newNode;
+				size++;
+
+				if (size > 0) {
+					table[size - 1].setNext(newNode);
+				}
+
+			}
+		}
+		return DNE;
+	}
+
+// if key is in HashTable deletes the key and its association from the HashTable and returns true
+// if key is not in the HashTable returns false
+	public boolean tableDelete(K searchKey) {
+		boolean found = false;
+
+		for (int i = 0; i < size; i++) {
+			if (table[i].getNext().getKey().equals(searchKey)) {
+				found = true;
+				ChainNode toReplace = table[i].getNext();
+				table[i].setNext(toReplace.getNext());
+				size--;
+			}
+		}
+
+		return found;
+	}
+
+//returns the value associated with searchKey in the HashTable or null if the serchKey is not in the HashTable 
+	public V tableRetrieve(K searchKey) {
+		V value = null;
+		boolean found = false;
+
+		for (int i = 0; i < size && found == false; i++) {
+			if (table[i].getKey().equals(searchKey)) {
+				value = (V) table[i].getValue();
+				found = true;
+			}
+		}
+
+		return value;
+	}
+
+// returns the integer hashCode computed using Horner's rule - assumes K is String 
+	public int hashCode(K key) {
+
+		int code = 0;
+		String keyString = key.toString();
+
+		for (int i = 0, s = keyString.length()-1; i < keyString.length(); i++, s--) {
+			int current = map(keyString.charAt(i));
+		
+			int power = 1;
+			for(int k = s; k > 0; k--)
+			{
+				if(k == 0)
+				{
+					power *= 1;
+				}
+				else
+				{
+					power *= 32;
+				}
+			}
+			
+			code += (current * power);
+		}
+
+		return code;
+	}
+
+//display all (key,value) associations in the HashTable
+	public String toString() {
+		StringBuilder build = new StringBuilder();
+		String result = "";
+		for (int i = 0; i < size; i++) {
+			build.append(table[i].getKey().toString() + ", " + table[i].getValue().toString() + " ");
+		}
+
+		result = build.toString();
+		return result;
+
+	}
+
+	public int map(char character) {
+		String alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		int value = 0;
+		boolean found = false;
+
+		for (int i = 1; i < alphabet.length() && found == false; i++) {
+			char current = alphabet.charAt(i);
+			if (character == current) {
+				value = i;
+				found = true;
+			}
+		}
+
+		return value;
+	}
+
+} // end HashTable
+::::::::::::::
+input.txt
+::::::::::::::
+1
+ATE
+100
+1
+TEA
+500
+1
+CAT
+50
+5
+4
+ATE
+4
+TEA
+2
+ATE
+1
+TEA
+25
+1
+ASDFJK
+25
+4
+ASDFJK
+3
+ATE
+3
+TEA
+3
+CAT
+5
+0
+::::::::::::::
+Lab12_Conclusions.txt
+::::::::::::::
+Lab 12 was a breath of fresh air.
+
+I had a hard time starting, but the moment I figured it out, it just all clicked
+with no problems whatsoever.
+
+I have a sinking feeling I screwed *something* up but the fact it compiles with
+no issues is a win in my book.
+
+In general, it helped nail down the final few fundamentals I was kind of
+(incredibly) shaky on.
+
+It was a good run.
+::::::::::::::
+output.txt
+::::::::::::::
+Welcome to the Hashing Program!
+Please select from the following.
+
+	0. Exit Program
+	1. Insert a symbol with an associated value in the table.
+	2. Delete a symbol from the table.
+	3. Retrieve and display the value associated with a symbol key from the table.
+	4. Display hashCode of a symbol key.
+	5. Display content of the symbol table.
+
+Make your selection now: 1
+Please specify
+Key: ATE
+
+Value: 100
+Key ATE with value of 100 has been inserted.
+
+Make your selection now: 1
+Please specify
+Key: TEA
+
+Value: 500
+Key TEA with value of 500 has been inserted.
+
+Make your selection now: 1
+Please specify
+Key: CAT
+
+Value: 50
+Key CAT with value of 50 has been inserted.
+
+Make your selection now: 5
+Contents of symbol table: ATE, 100 TEA, 500 CAT, 50 
+
+Make your selection now: 4
+Please specify which key to display hashCode of: ATE
+HashKey of ATE: 1669
+
+Make your selection now: 4
+Please specify which key to display hashCode of: TEA
+HashKey of TEA: 20641
+
+Make your selection now: 2
+Please specify Key to delete: ATE
+ATE has been deleted.
+
+Make your selection now: 1
+Please specify
+Key: TEA
+
+Value: 25
+Key already exists in table.
+
+Make your selection now: 1
+Please specify
+Key: ASDFJK
+
+Value: 25
+Key ASDFJK with value of 25 has been inserted.
+
+Make your selection now: 4
+Please specify which key to display hashCode of: ASDFJK
+HashKey of ASDFJK: 53614923
+
+Make your selection now: 3
+Please specify key to retrieve: ATE
+Value of ATE: 100
+
+Make your selection now: 3
+Please specify key to retrieve: TEA
+Value of TEA: 500
+
+Make your selection now: 3
+Please specify key to retrieve: CAT
+Key not found.
+
+Make your selection now: 5
+Contents of symbol table: ATE, 100 TEA, 500 ASDFJK, 25 
+
+Make your selection now: 0
+Exiting program... Goodbye!
+::::::::::::::
+status.txt
+::::::::::::::
+For once! No major issues!!!

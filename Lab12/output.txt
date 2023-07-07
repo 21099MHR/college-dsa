@@ -1,0 +1,81 @@
+Welcome to the Hashing Program!
+Please select from the following.
+
+	0. Exit Program
+	1. Insert a symbol with an associated value in the table.
+	2. Delete a symbol from the table.
+	3. Retrieve and display the value associated with a symbol key from the table.
+	4. Display hashCode of a symbol key.
+	5. Display content of the symbol table.
+
+Make your selection now: 1
+Please specify
+Key: ATE
+
+Value: 100
+Key ATE with value of 100 has been inserted.
+
+Make your selection now: 1
+Please specify
+Key: TEA
+
+Value: 500
+Key TEA with value of 500 has been inserted.
+
+Make your selection now: 1
+Please specify
+Key: CAT
+
+Value: 50
+Key CAT with value of 50 has been inserted.
+
+Make your selection now: 5
+Contents of symbol table: ATE, 100 TEA, 500 CAT, 50 
+
+Make your selection now: 4
+Please specify which key to display hashCode of: ATE
+HashKey of ATE: 1669
+
+Make your selection now: 4
+Please specify which key to display hashCode of: TEA
+HashKey of TEA: 20641
+
+Make your selection now: 2
+Please specify Key to delete: ATE
+ATE has been deleted.
+
+Make your selection now: 1
+Please specify
+Key: TEA
+
+Value: 25
+Key already exists in table.
+
+Make your selection now: 1
+Please specify
+Key: ASDFJK
+
+Value: 25
+Key ASDFJK with value of 25 has been inserted.
+
+Make your selection now: 4
+Please specify which key to display hashCode of: ASDFJK
+HashKey of ASDFJK: 53614923
+
+Make your selection now: 3
+Please specify key to retrieve: ATE
+Value of ATE: 100
+
+Make your selection now: 3
+Please specify key to retrieve: TEA
+Value of TEA: 500
+
+Make your selection now: 3
+Please specify key to retrieve: CAT
+Key not found.
+
+Make your selection now: 5
+Contents of symbol table: ATE, 100 TEA, 500 ASDFJK, 25 
+
+Make your selection now: 0
+Exiting program... Goodbye!

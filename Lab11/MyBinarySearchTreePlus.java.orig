@@ -1,0 +1,190 @@
+import java.lang.StringBuilder;
+
+public class MyBinarySearchTreePlus<T extends KeyedItem<KT>, KT extends Comparable<? super KT>>
+		extends MyBinarySearchTree<T, KT> implements BSTPInterface {
+
+	@Override
+	public int getHeight() {
+		int result = 0;
+		if (root == null) {
+			return 0;
+		} else {
+
+			result = heightCalc(root, 1);
+		}
+		return result;
+	}
+
+	private int heightCalc(TreeNode<T> node, int count) {
+
+		int leftResult = 0;
+		int rightResult = 0;
+		int result = 0;
+
+		if (node.getLeftChild() != null) {
+			count++;
+			leftResult = heightCalc(node.getLeftChild(), count);
+		}
+
+		if (node.getRightChild() != null) {
+			count++;
+			rightResult = heightCalc(node.getRightChild(), count);
+		}
+
+		if(leftResult > rightResult)
+		{
+			result = leftResult;
+		}
+		else
+		{
+			result = rightResult;
+		}
+		
+		return result;
+	}
+
+	private int sizeCalc(TreeNode<T> child) {
+		int result = 1;
+
+		if (root == null) {
+			result = 0;
+		} else if ((child.getLeftChild() == null) && (child.getRightChild() == null)) {
+			return result;
+		} else {
+			if (child.getLeftChild() != null) {
+				result += sizeCalc(child.getLeftChild());
+			}
+			if (child.getRightChild() != null) {
+				result += sizeCalc(child.getRightChild());
+			}
+		}
+
+		return result;
+	}
+
+	@Override
+	public int getSize() {
+		int result = sizeCalc(root);
+		return result;
+	}
+
+	@Override
+	public String toStringInorder() {
+
+		StringBuilder build = new StringBuilder();
+
+		String result = inorderBuild(root, build).toString();
+
+		return result;
+	}
+
+	private StringBuilder inorderBuild(TreeNode<T> node, StringBuilder build) {
+
+		if (node == null) {
+			return null;
+		} else {
+			if (node.getLeftChild() != null) {
+				preorderBuild(node.getLeftChild(), build);
+			}
+
+			build.append(node.getItem().toString());
+
+			if (node.getRightChild() != null) {
+				preorderBuild(node.getRightChild(), build);
+			}
+		}
+
+		return build;
+	}
+
+	@Override
+	public String toStringPreorder() {
+		StringBuilder build = new StringBuilder();
+
+		String result = preorderBuild(root, build).toString();
+
+		return result;
+	}
+
+	private StringBuilder preorderBuild(TreeNode<T> node, StringBuilder build) {
+
+		if (node == null) {
+			return null;
+		} else {
+			build.append(node.getItem().toString());
+
+			if (node.getLeftChild() != null) {
+				preorderBuild(node.getLeftChild(), build);
+			}
+			if (node.getRightChild() != null) {
+				preorderBuild(node.getRightChild(), build);
+			}
+		}
+
+		return build;
+	}
+
+	@Override
+	public String toStringPostorder() {
+
+		StringBuilder build = new StringBuilder();
+
+		String result = postOrderBuild(root, build).toString();
+
+		return result;
+	}
+
+	private StringBuilder postOrderBuild(TreeNode<T> node, StringBuilder build) {
+		if (node == null) {
+			return null;
+		} else {
+
+			if (node.getLeftChild() != null) {
+				preorderBuild(node.getLeftChild(), build);
+			}
+			if (node.getRightChild() != null) {
+				preorderBuild(node.getRightChild(), build);
+			}
+
+			build.append(node.getItem().toString());
+		}
+
+		return build;
+	}
+
+	@Override
+	public MyBinarySearchTreePlus<T, KT> getCopyOfTree() {
+
+		MyBinarySearchTreePlus<T, KT> cloneTree = new MyBinarySearchTreePlus<T, KT>();
+
+		cloneTree = cloneTree(root, cloneTree);
+
+		return null;
+	}
+
+	private MyBinarySearchTreePlus<T, KT> cloneTree(TreeNode<T> node, MyBinarySearchTreePlus<T, KT> cloneTree) {
+		if (node == null) {
+			return null;
+		} else {
+
+			T cloneItem = node.getItem();
+
+			if (node.equals(root)) {
+				cloneTree.setRootItem(cloneItem);
+			} else {
+				cloneTree.insert(cloneItem);
+			}
+
+			if (node.getLeftChild() != null) {
+				cloneTree(node.getLeftChild(), cloneTree);
+			}
+
+			if (node.getRightChild() != null) {
+				cloneTree(node.getRightChild(), cloneTree);
+			}
+		}
+
+		return null;
+	}
+
+}

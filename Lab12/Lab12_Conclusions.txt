@@ -1,0 +1,12 @@
+Lab 12 was a breath of fresh air.
+
+I had a hard time starting, but the moment I figured it out, it just all clicked
+with no problems whatsoever.
+
+I have a sinking feeling I screwed *something* up but the fact it compiles with
+no issues is a win in my book.
+
+In general, it helped nail down the final few fundamentals I was kind of
+(incredibly) shaky on.
+
+It was a good run.
