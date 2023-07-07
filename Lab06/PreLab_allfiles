@@ -1,0 +1,394 @@
+::::::::::::::
+Driver.java
+::::::::::::::
+
+/*
+
+ * Purpose: Data Structure and Algorithms Lab 6 PreLab
+
+ * Status: Complete and thoroughly tested
+
+ * Last update: 03/03/2020
+
+ * Submitted:  03/03/2020
+
+ * Comment: test suite and sample run attached
+
+ * @author: Matthew Ryan
+
+ * @version: 2020.03/03
+
+ */
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Driver {
+	static BufferedReader stdin = new BufferedReader (new InputStreamReader(System.in));	
+	
+	public static <T> void main(String[] args) throws NumberFormatException, IOException, QueueException {
+		
+		QueueRAB<T> queue = new QueueRAB<T>();
+		
+		System.out.println("Select from the following: "
+				+ "\n\t1. Insert item at back of queue"
+				+ "\n\t2. Remove item from front of queue"
+				+ "\n\t3. Display front item of queue"
+				+ "\n\t4. Clear queue"
+				+ "\n\t5. Display content of queue"
+				+ "\n\t6. Exit");
+		
+		boolean switchOn = true;
+		T result;
+		
+		while(switchOn == true)
+				{
+			System.out.print("\n\nMake your selection now: ");
+			int selection = Integer.parseInt(stdin.readLine());
+			System.out.println(selection);
+			switch(selection)
+			{
+			case 1:
+				System.out.print("\nItem to be added: ");
+				Object newItem = stdin.readLine().trim();
+				System.out.println(newItem);
+				queue.enqueue(newItem);
+				System.out.println(newItem + " has been added to back of queue.");
+				break;
+				
+			case 2:
+				result = queue.dequeue();
+				if(result == null)
+				{
+					System.out.println("Queue empty!");
+				}
+				else
+				{
+					System.out.println("\n" + result + 
+							" has been removed from the front of the queue.");
+				}
+				break;
+				
+			case 3:
+				result = queue.peek();
+				if(result == null)
+				{
+					System.out.println("Queue empty!");
+				}
+				else
+				{
+					System.out.println("\nFront item of queue: " + result);
+				}
+				break;
+				
+			case 4:
+				queue.dequeueAll();
+				System.out.println("\nQueue cleared.");
+				break;
+				
+			case 5:
+				System.out.println("\nContents of queue: " + queue.toString());
+				break;
+				
+			case 0:
+				switchOn = false;
+				System.out.println("\nExiting program... Goodbye!");
+			}
+			
+				}
+		
+
+	}
+
+}
+::::::::::::::
+QueueException.java
+::::::::::::::
+public class QueueException extends Throwable {
+
+    public QueueException(String s) {
+        super(s);
+    }  // end constructor
+}  // end QueueException::::::::::::::
+QueueInterface.java
+::::::::::::::
+public interface QueueInterface<T> {
+
+    public boolean isEmpty();
+    // Determines whether a queue is empty.
+    // Precondition: None.
+    // Postcondition: Returns true if the queue is empty;
+    // otherwise returns false.
+
+    public void enqueue(T newItem) throws QueueException;
+    // Adds an item at the back of a queue.
+    // Precondition: newItem is the item to be inserted.
+    // Postcondition: If the operation was successful, newItem
+    // is at the back of the queue. Some implementations
+    // may throw QueueException if newItem cannot be added
+    // to the queue.
+
+    public T dequeue() throws QueueException;
+    // Retrieves and removes the front of a queue.
+    // Precondition: None.
+    // Postcondition: If the queue is not empty, the item that
+    // was added to the queue earliest is removed. If the queue is
+    // empty, the operation is impossible and QueueException is thrown.
+
+    public void dequeueAll();
+    // Removes all items of a queue.
+    // Precondition: None.
+    // Postcondition: The queue is empty.
+
+    public T peek() throws QueueException;
+    // Retrieves the item at the front of a queue.
+    // Precondition: None.
+    // Postcondition: If the queue is not empty, the item
+    // that was added to the queue earliest is returned.
+    // If the queue is empty, the operation is impossible
+    // and QueueException is thrown.
+
+    public String toString();
+}  // end QueueInterface
+
+::::::::::::::
+QueueRAB.java
+::::::::::::::
+
+public class QueueRAB<T> implements QueueInterface<T>  {
+
+	protected int numItems;
+	protected int front;
+	protected int back;
+	protected T[] items;
+	
+	public QueueRAB()
+	{
+		numItems = 0;
+		back = 0;
+		front = 0;
+		items = (T[]) new Object[3];
+	}
+	
+	
+	@Override
+	public boolean isEmpty() {
+		return (numItems == 0);
+	}
+
+	@Override
+	public void enqueue(Object newItem) throws QueueException {
+		if(numItems == items.length)
+		{	
+			resize();
+		}
+		items[back] = (T) newItem;
+		back = (back+1)%items.length;
+		numItems++;
+		
+	}
+	
+	@Override
+	public T dequeue() throws QueueException {
+		T result = null;
+		if(numItems > 0)
+		{
+			result = items[front];
+			items[front] = null;
+			front = (front + 1)%items.length;
+			numItems--;
+		}		
+		return result;
+	}
+
+	@Override
+	public void dequeueAll() {		
+		numItems = 0;
+		back = 0;
+		front = 0;
+		items = (T[]) new Object[3];
+	}
+
+	@Override
+	public T peek() throws QueueException {
+		
+		T result = null;
+		if(numItems > 0)
+		{
+			result = items[front];
+		}
+		else
+		{
+			System.out.println("Queue empty!");
+		}
+		return result;
+		
+	}
+	
+	public String toString()
+	{
+		   StringBuilder builder = new StringBuilder();
+		   String toReturn = "";
+		int counter = 0;
+		for(int i = front; counter < numItems; counter++)
+		{
+
+			String name = items[(i)].toString() + " ";
+			builder.append(name);
+			i = (i+1) % items.length;
+		}
+		
+		return toReturn = builder.toString();	
+		
+	}
+
+	private void resize() {
+		T[] temp = (T[]) new Object[items.length + ((items.length/2) + 1)];
+		System.out.println();
+		int conuter = 0;
+		for(int i = front; conuter < numItems; conuter++)
+		{
+			temp[conuter] = items[i];
+			i = (i+1) % items.length;
+		}
+		
+		items = temp;
+		front = 0;
+		back = numItems;
+		
+	}
+	
+}
+::::::::::::::
+output.txt
+::::::::::::::
+Select from the following: 
+	1. Insert item at back of queue
+	2. Remove item from front of queue
+	3. Display front item of queue
+	4. Clear queue
+	5. Display content of queue
+	6. Exit
+
+
+Make your selection now: 1
+
+Item to be added: A-Assault Core
+A-Assault Core has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: B-Buster Drake
+B-Buster Drake has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: C-Crush Wyvern
+C-Crush Wyvern has been added to back of queue.
+
+
+Make your selection now: 3
+
+Front item of queue: A-Assault Core
+
+
+Make your selection now: 2
+
+A-Assault Core has been removed from the front of the queue.
+
+
+Make your selection now: 3
+
+Front item of queue: B-Buster Drake
+
+
+Make your selection now: 2
+
+B-Buster Drake has been removed from the front of the queue.
+
+
+Make your selection now: 3
+
+Front item of queue: C-Crush Wyvern
+
+
+Make your selection now: 2
+
+C-Crush Wyvern has been removed from the front of the queue.
+
+
+Make your selection now: 3
+Queue empty!
+Queue empty!
+
+
+Make your selection now: 1
+
+Item to be added: ABC-Dragon Buster
+ABC-Dragon Buster has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: VYXYZ-Dragon Catapult Cannon
+VYXYZ-Dragon Catapult Cannon has been added to back of queue.
+
+
+Make your selection now: 4
+
+Queue cleared.
+
+
+Make your selection now: 1
+
+Item to be added: A-to-Z Dragon Cannon Buster
+A-to-Z Dragon Cannon Buster has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Celtic Guardian
+Celtic Guardian has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Winged Dragon of Ra
+Winged Dragon of Ra has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Slifer, the Sky Dragon
+
+Slifer, the Sky Dragon has been added to back of queue.
+
+
+Make your selection now: 1
+
+Item to be added: Obelisk the Tormentor
+Obelisk the Tormentor has been added to back of queue.
+
+
+Make your selection now: 3
+
+Front item of queue: A-to-Z Dragon Cannon Buster
+
+
+Make your selection now: 5
+
+Contents of queue: A-to-Z Dragon Cannon Buster Celtic Guardian Winged Dragon of Ra Slifer, the Sky Dragon Obelisk the Tormentor 
+
+
+Make your selection now: 4
+
+Queue cleared.
+
+
+Make your selection now: 0
+
+Exiting program... Goodbye!

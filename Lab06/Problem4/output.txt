@@ -1,0 +1,215 @@
+
+Select from the following menu:
+	0. Exit.
+	1. Pick up an order.
+	2. Drop off an order.
+	3. Display number of packages and weight of bag.
+	4. Display number of items and weight of the bag of samples.
+	5. Enjoy an item from the bag of samples.
+	6. Enjoy all the samples in the bag of samples.
+	7. Pick up an express order.
+
+Make your selection now: 3
+Bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 5
+No samples to enjoy!
+
+Make your selection now: 6
+Sample bag is already empty.
+
+Make your selection now: 2
+No deliveries to process!
+
+Make your selection now: 1
+Please specify info: 
+Item name: apple
+
+Item weight: 0.6
+
+# of items: 10
+
+Sender: Pickachu
+
+Recipient: Mew
+A package of apples each weighing 0.6 lbs are now in the bag.
+
+Make your selection now: 3
+Bag has 1 packages and weights 6.0 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 1
+Please specify info: 
+Item name: orange
+
+Item weight: 0.85
+
+# of items: 14
+
+Sender: Bulbasaur
+
+Recipient: Abra
+A package of oranges each weighing 0.85 lbs are now in the bag.
+
+Make your selection now: 7
+Please specify express package info: 
+Item name: pear
+
+Item weight: 0.9
+
+# of items: 7
+
+Sender: Abra
+
+Recipient: Kadabra
+A package of pear each weighing 0.9 lbs are now in the bag.
+
+Make your selection now: 7
+Please specify express package info: 
+Item name: mango
+
+Item weight: 0.3
+
+# of items: 12
+
+Sender: Victini
+
+Recipient: Meloetta
+
+A package of mango each weighing 0.3 lbs are now in the bag.
+
+Make your selection now: 3
+Bag has 4 packages and weights 27.800001 lbs.
+
+Make your selection now: 4
+Sample bag has 0 packages and weights 0.0 lbs.
+
+Make your selection now: 2
+Here is your package Meloetta. May I keep a sample (Y/N)? Y
+Your package contains: 
+12 mangos each weighing 0.3 from Victini to Meloetta
+ Thanks for letting me keep a mango!
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.3 lbs.
+
+Make your selection now: 3
+Bag has 3 packages and weights 24.2 lbs.
+
+Make your selection now: 1
+Please specify info: 
+Item name: cookie
+
+Item weight: 0.1
+
+# of items: 50
+
+Sender: Charizard
+
+Recipient: Squirtle
+A package of cookies each weighing 0.1 lbs are now in the bag.
+
+Make your selection now: 1
+Please specify info: 
+Item name: banana
+
+Item weight: 0.5
+
+# of items: 22
+
+Sender: Clefairy
+
+Recipient: Vulpix
+
+A package of bananas each weighing 0.5 lbs are now in the bag.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.3 lbs.
+
+Make your selection now: 3
+Bag has 5 packages and weights 40.2 lbs.
+
+Make your selection now: 2
+Here is your package Kadabra. May I keep a sample (Y/N)? N
+Your package contains: 
+7 pears each weighing 0.9 from Abra to Kadabra
+ Thanks anyway.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.3 lbs.
+
+Make your selection now: 3
+Bag has 4 packages and weights 33.9 lbs.
+
+Make your selection now: 2
+Here is your package Mew. May I keep a sample (Y/N)? Y
+Your package contains: 
+10 apples each weighing 0.6 from Pickachu to Mew
+ Thanks for letting me keep a apple!
+
+Make your selection now: 4
+Sample bag has 2 packages and weights 0.90000004 lbs.
+
+Make your selection now: 3
+Bag has 3 packages and weights 27.900002 lbs.
+
+Make your selection now: 5
+This apple is amazing! I love free stuff!
+
+Make your selection now: 3
+Bag has 3 packages and weights 27.900002 lbs.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 0.3 lbs.
+
+Make your selection now: 6
+Sample bag has been emptied.
+
+Make your selection now: 1
+Please specify info: 
+Item name: granola
+
+Item weight: 0.5
+
+# of items: 25
+
+Sender: Jigglypuff
+
+Recipient: Meowth
+A package of granolas each weighing 0.5 lbs are now in the bag.
+
+Make your selection now: 7
+Please specify express package info: 
+Item name: watermelon
+
+Item weight: 3.7
+
+# of items: 3
+
+Sender: Slowpoke
+
+Recipient: Slowbro
+A package of watermelon each weighing 3.7 lbs are now in the bag.
+
+Make your selection now: 2
+Here is your package Slowbro. May I keep a sample (Y/N)? Y
+Your package contains: 
+3 watermelons each weighing 3.7 from Slowpoke to Slowbro
+ Thanks for letting me keep a watermelon!
+
+Make your selection now: 3
+Bag has 4 packages and weights 40.4 lbs.
+
+Make your selection now: 4
+Sample bag has 1 packages and weights 3.7 lbs.
+
+Make your selection now: 5
+This watermelon is amazing! I love free stuff!
+
+Make your selection now: 0
+Exiting program...Good Bye

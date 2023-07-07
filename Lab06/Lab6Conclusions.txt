@@ -1,0 +1,15 @@
+Lab 6 was... in a word, challenging.
+
+It was a genuine pain in the rear to get working at points, but I knew how the
+lab was supposed to function once I got over my personal chokepoint in Problem 2
+and that's what I had to aim for.
+
+ And even then, my biggest challenge in Problem 2 was properly updating Front
+ and Back for the DEQ, which reminded me that math is simultaneously complicated
+ and incredibly simple.
+
+I see the place for Queues; they're a smaller version of the CDLS while
+retaining part of the functionality. That being said, the CDLS's functions are
+simpler while giving up that space.
+
+Its an interesting tradeoff for space VS ease of use, and something I'll have to heavily considering going forward.
