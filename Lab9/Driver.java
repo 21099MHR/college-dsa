@@ -11,6 +11,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class Driver {
@@ -23,7 +24,7 @@ public class Driver {
     public static void main(String[] args) throws NumberFormatException, IOException {
         boolean switchOn = true;
         int[] array = {0, 0, 0, 0, 0};
-        Random rand = new Random();
+        Random rand = new SecureRandom();
 
         System.out.print("Welcome to the Sorting Program!\n"
                          + "What type of input would you like to use?"
