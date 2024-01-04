@@ -12,6 +12,7 @@ import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -22,7 +23,7 @@ public class Driver {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         boolean switchOn = true;
-        Random rand = new Random();
+        Random rand = new SecureRandom();
 
         System.out.print("\nWelcome to the Sorting Program!"
                          + "\nPlease select select from the following:"
@@ -195,7 +196,7 @@ public class Driver {
         int valueTwo = 0;
         int valueThree = 0;
 
-        Random rand = new Random();
+        Random rand = new SecureRandom();
 
         System.out.print("Original Array: ");
         for(int originalArray = 0; originalArray <= length; originalArray++)
