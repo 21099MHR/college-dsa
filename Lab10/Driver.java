@@ -8,6 +8,7 @@
  * @version: 2020.14.04
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class Driver {
         while(switchOn == true)
         {
             System.out.print("\n\nMake your selection now: ");
-            int input = Integer.parseInt(stdin.readLine());
+            int input = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 
             int arraySize;
             int[] array;
@@ -46,7 +47,7 @@ public class Driver {
             case 1:
                 System.out.print("\nPlease enter the size of the array to Sort: ");
 
-                arraySize = Integer.parseInt(stdin.readLine());
+                arraySize = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
                 array = new int[arraySize];
 
                 /*
@@ -64,18 +65,18 @@ public class Driver {
             case 2:
                 System.out.print("\nPlease enter the size of the array to Sort: ");
 
-                arraySize = Integer.parseInt(stdin.readLine());
+                arraySize = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
                 array = new int[arraySize];
 
                 System.out.print("\nWhat upper bound do you want to set?"
                                  + "\nMake your selection now: ");
-                int upperBound = Integer.parseInt(stdin.readLine());
+                int upperBound = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
                 System.out.println(upperBound);
 
                 while(upperBound <= 0)
                 {
                     System.out.println("\nMust be a positive number!");
-                    upperBound = Integer.parseInt(stdin.readLine()) + 1;
+                    upperBound = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000)) + 1;
                 }
 
                 ArrayList<Integer> random = new ArrayList<Integer>(upperBound);

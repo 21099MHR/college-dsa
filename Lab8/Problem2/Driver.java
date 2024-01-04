@@ -16,6 +16,7 @@
 
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,14 +41,14 @@ public class Driver {
 		while(switchOn == true)
 		{
 			System.out.print("\nMake your selection now: ");
-			int selection = Integer.parseInt(stdin.readLine().trim());
+			int selection = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			System.out.println(selection);
 			
 			switch(selection)
 			{
 			case 1:
 				System.out.print("\nYou are now inserting an item into the list.\n\tEnter item: ");
-				Object item = stdin.readLine().trim();
+				Object item = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				System.out.println(item);
 				
 				int toAdd = search(item, items, true);
@@ -64,7 +65,7 @@ public class Driver {
 				break;
 			case 2:
 				System.out.print("\tEnter position to remove item from: ");
-				int toRemove = Integer.parseInt(stdin.readLine().trim());
+				int toRemove = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 				System.out.println(toRemove);
 				
 				if((toRemove >= items.size()) || (toRemove < 0))
@@ -79,7 +80,7 @@ public class Driver {
 				break;
 			case 3:
 				System.out.print("\t\nEnter position to retrieve item from: ");
-				int toRetrieve = Integer.parseInt(stdin.readLine().trim());
+				int toRetrieve = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 				System.out.println(toRetrieve);
 				
 				if((toRetrieve >= items.size()) || (toRetrieve < 0))
@@ -99,7 +100,7 @@ public class Driver {
 				else
 				{
 				System.out.print("Specify item to search for: ");
-				Object toSearch = stdin.readLine().trim();
+				Object toSearch = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				int search = search(toSearch, items, false);
 				
 				if(search < items.size())

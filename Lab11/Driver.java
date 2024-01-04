@@ -8,6 +8,7 @@
  * @version: 2019.09.06
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,7 +39,7 @@ public class Driver {
         while(switchOn == true)
         {
             System.out.print("\nMake your selection now: ");
-            selection = Integer.parseInt(stdin.readLine());
+            selection = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 
             switch(selection) {
             case 0:
@@ -46,17 +47,17 @@ public class Driver {
                 switchOn = false;
                 break;
             case 1:
-                T toAdd = (T) new Item(stdin.readLine(), selection, switchOn);
+                T toAdd = (T) new Item(BoundedLineReader.readLine(stdin, 5_000_000), selection, switchOn);
                 tree.insert(toAdd);
                 break;
 
             case 2:
-                String searchKey = stdin.readLine();
+                String searchKey = BoundedLineReader.readLine(stdin, 5_000_000);
                 tree.delete(searchKey);
                 break;
 
             case 3:
-                String searchKey = stdin.readLine();
+                String searchKey = BoundedLineReader.readLine(stdin, 5_000_000);
                 tree.retrieve(searchKey);
                 break;
 

@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,13 +25,13 @@ public class Driver {
 			{
 				System.out.print("You know the options: ");
 			}
-			userIn = Integer.parseInt(stdin.readLine().trim());
+			userIn = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			System.out.println(userIn);
 			
 			while(userIn > 1 && InventoryManagement.getInventory().size() == 0)
 			{
 				System.out.println("\tError: no items in the inventory.\nYou know the options: ");
-				userIn = Integer.parseInt(stdin.readLine().trim());
+				userIn = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			}
 			
 			switch(userIn)
@@ -46,7 +47,7 @@ public class Driver {
 				int amount = 0;
 				
 				System.out.print("You are now adding a new item to the inventory. \n\tEnter name of the item: ");
-				name = stdin.readLine().trim();
+				name = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				System.out.println(name);				
 				for(int i = 0; i < InventoryManagement.getInventory().size(); i++)
 				{
@@ -57,11 +58,11 @@ public class Driver {
 						while(nameTaken == true)
 						{
 							System.out.print("This item already exists in the inventory! Please specify another item: ");
-							name = stdin.readLine().trim();
+							name = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 							if(InventoryManagement.getInventory().get(i).getName().trim().equals(name.trim()))
 							{
 								System.out.println("This item already exists in the inventory! Please specify another item: ");
-								name = stdin.readLine().trim();
+								name = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 								System.out.println(name);				
 
 							}
@@ -73,15 +74,15 @@ public class Driver {
 					}
 				}
 				System.out.print("\tEnter number of items of this type: ");
-				amount = Integer.parseInt(stdin.readLine().trim());
+				amount = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 				System.out.println(amount);
 				
 				System.out.print("\tEnter the price of items of this type: ");
-				price = Float.parseFloat(stdin.readLine().trim());
+				price = Float.parseFloat(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 				System.out.println(price);
 				
 				System.out.print("\tEnter the location of this item (shelf number): ");
-				shelf = Integer.parseInt(stdin.readLine().trim());
+				shelf = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 				System.out.println(shelf);
 				
 				InventoryManagement.addItem(name, amount, price, shelf);
@@ -89,21 +90,21 @@ public class Driver {
 				break;
 			case 2:
 				System.out.println("Enter the name of the item you want deleted: ");
-				String toDelete = stdin.readLine().trim();
+				String toDelete = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				System.out.println(toDelete);
 				InventoryManagement.removeItem(toDelete);
 				break;
 				
 			case 3:
 				System.out.println("Enter the name of the item in the inventory to search for: ");
-				String toSearch = stdin.readLine().trim();
+				String toSearch = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				System.out.println(toSearch);
 				InventoryManagement.searchInv(toSearch);
 				break;
 			
 			case 4:
 				System.out.print("Enter the name of the item in the inventory to update the amount: ");
-				String toUpdate = stdin.readLine().trim();
+				String toUpdate = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 				System.out.print(toUpdate);
 				
 				boolean found = false;
@@ -123,7 +124,7 @@ public class Driver {
 				if(found == true)
 				{
 					System.out.print("\nEnter the new amount: ");
-					int newNum = Integer.parseInt(stdin.readLine());
+					int newNum = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 					System.out.println(newNum);
 					
 					if(newNum > 0)

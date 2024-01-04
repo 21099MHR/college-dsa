@@ -17,6 +17,7 @@
 
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,7 +46,7 @@ public class Driver {
         while(switchOn == true)
         {
             System.out.print("\n\nMake your selection now: ");
-            int selection = Integer.parseInt(stdin.readLine());
+            int selection = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
             System.out.println(selection);
             switch(selection)
             {
@@ -55,7 +56,7 @@ public class Driver {
                 break;
             case 1:
                 System.out.print("\nItem to be added at back: ");
-                Object newItem = stdin.readLine();
+                Object newItem = BoundedLineReader.readLine(stdin, 5_000_000);
                 System.out.println(newItem);
                 queue.enqueue(newItem);
                 System.out.println(newItem + " has been added to back of queue.");
@@ -63,7 +64,7 @@ public class Driver {
 
             case 2:
                 System.out.print("\nItem to be added at front: ");
-                Object frontItem = stdin.readLine();
+                Object frontItem = BoundedLineReader.readLine(stdin, 5_000_000);
                 System.out.println(frontItem);
                 queue.enqueueFirst(frontItem);
                 System.out.println(frontItem + " has been added to front of queue.");

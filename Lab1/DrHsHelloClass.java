@@ -8,6 +8,7 @@
  * @version: 2019.01.21
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 
 public class DrHsHelloClass
@@ -17,7 +18,7 @@ public class DrHsHelloClass
     public static void main(String args[]) throws IOException
     {
         System.out.print("Enter name:");
-        String name = stdin.readLine();
+        String name = BoundedLineReader.readLine(stdin, 5_000_000);
         System.out.print(name + " says ");
         System.out.println("Hello Class!!!");
     }
