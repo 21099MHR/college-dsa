@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,15 +22,15 @@ public class Driver {
 		
 		
 		System.out.print("Welcome to the Common A.T.M. Stock Exchange Center!\nEnter amount of Amazon stock available: ");
-		int amazonStock = Integer.parseInt(stdin.readLine().trim());
+		int amazonStock = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 		System.out.println(amazonStock);
 		
 		System.out.print("Enter amount of Tesla stock available: ");
-		int teslaStock = Integer.parseInt(stdin.readLine().trim());
+		int teslaStock = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 		System.out.println(teslaStock);
 		
 		System.out.print("Enter amount of Microsoft stock available: ");
-		int microsoftStock = Integer.parseInt(stdin.readLine().trim());
+		int microsoftStock = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 		System.out.println(microsoftStock);
 		
 		System.out.println("\nSelect from the following menu:\n"
@@ -47,7 +48,7 @@ public class Driver {
 		while(switchOn == true)
 		{
 		System.out.print("\nMake your selection now: ");	
-		int selection = Integer.parseInt(stdin.readLine().trim());
+		int selection = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 		System.out.println(selection);
 		
 		switch(selection)
@@ -62,19 +63,19 @@ public class Driver {
 		case 1:
 			
 			System.out.print("Welcome! Name, please: ");
-			String name = stdin.readLine().trim();
+			String name = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 			System.out.println(name);
 			
 			System.out.print("\nHow much Amazon stock do you want: ");
-			int amazonBuy = Integer.parseInt(stdin.readLine().trim());
+			int amazonBuy = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			System.out.println(amazonBuy);
 			
 			System.out.print("\nHow much Tesla stock do you want: ");
-			int teslaBuy = Integer.parseInt(stdin.readLine().trim());
+			int teslaBuy = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			System.out.println(teslaBuy);
 			
 			System.out.print("\nHow much Microsoft stock do you want: ");
-			int microsoftBuy = Integer.parseInt(stdin.readLine().trim());
+			int microsoftBuy = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			System.out.println(microsoftBuy);
 			
 			Customer toBuy = new Customer(name, amazonBuy, teslaBuy, microsoftBuy);
@@ -89,18 +90,18 @@ public class Driver {
 		case 2:
 			System.out.print("Welcome, your name, please: ");
 			
-			String nameSell = stdin.readLine().trim();
+			String nameSell = BoundedLineReader.readLine(stdin, 5_000_000).trim();
 			
 			System.out.print("\nHow much Amazon stock are you selling: ");
-			int amazonSell = Integer.parseInt(stdin.readLine().trim());
+			int amazonSell = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			amazonStock += amazonSell;
 			
 			System.out.print("\nHow much Tesla stock are you selling: ");
-			int teslaSell = Integer.parseInt(stdin.readLine().trim());
+			int teslaSell = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			teslaStock += teslaSell;
 			
 			System.out.println("\nHow much Microsoft stock are you selling: ");
-			int microsoftSell = Integer.parseInt(stdin.readLine().trim());
+			int microsoftSell = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
 			microsoftStock += microsoftSell;
 			
 			System.out.println("Thanks, " + nameSell + ", here is your receipt for the " + amazonSell + " Amazon, " + teslaSell 

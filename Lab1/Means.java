@@ -16,6 +16,7 @@
 
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 
 public class Means {
@@ -25,7 +26,7 @@ public class Means {
     public static void main(String args[]) throws IOException
     {
         System.out.print("Enter number of pairs: ");
-        int numberOfPairs = Integer.parseInt(stdin.readLine().trim());
+        int numberOfPairs = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
         System.out.println(numberOfPairs);
         inputHandling(numberOfPairs);
     }
@@ -42,12 +43,12 @@ public class Means {
         while(counter <= numberOfPairs)
         {
             System.out.print("Enter number " + counter + ": ");
-            int	userIn = Integer.parseInt(stdin.readLine().trim());
+            int	userIn = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
             System.out.println(userIn);
             userInTotal += userIn;
 
             System.out.print("Enter weight " + counter + ": ");
-            float weightIn = Float.parseFloat(stdin.readLine().trim());
+            float weightIn = Float.parseFloat(BoundedLineReader.readLine(stdin, 5_000_000).trim());
             System.out.println(weightIn);
             weightTotal += weightIn;
 

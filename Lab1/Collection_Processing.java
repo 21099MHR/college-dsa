@@ -16,6 +16,7 @@
 
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -36,7 +37,7 @@ public class Collection_Processing {
         while(switchOn == true)
         {
             System.out.println("Please select from the following:\n 1. Add \n\nFORWARD PROCESSING: \n 2. for \n 3. for-each \n 4. while \n 5. do-while \n 6. iterator \n\nREVERSE PROCESSING: \n 7. for \n 8. while \n 9. do-while \n 10. iterator \n\nPALINDROME TESTING \n 11. for \n 12. while \n 13. do-while \n 14. iterator \n\n 0. Exit");
-            int select = Integer.parseInt(stdin.readLine());
+            int select = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 	    System.out.println(select);
             switch(select)
             {
@@ -94,7 +95,7 @@ public class Collection_Processing {
     public static ArrayList<Character> add(ArrayList<Character> data) throws IOException
     {
         System.out.println("\nEnter character to add: ");
-        char toAdd = stdin.readLine().charAt(0);
+        char toAdd = BoundedLineReader.readLine(stdin, 5_000_000).charAt(0);
 	System.out.println(toAdd);
         data.add(toAdd);
         return data;

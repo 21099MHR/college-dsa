@@ -10,6 +10,7 @@
 
 package myRLHelloClass;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.lang.StringBuilder;
 
@@ -23,7 +24,7 @@ public class MyRLHelloClass {
 		String message;
 		
 		System.out.print("Enter number of people: ");
-		userIn = Integer.parseInt(stdin.readLine());
+		userIn = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 		System.out.println(userIn);
 		
 		message = userInput(userIn);
@@ -39,7 +40,7 @@ public class MyRLHelloClass {
 		while(count <= userIn)
 		{
 			System.out.print("Enter name number " + count + ": ");
-			String name = stdin.readLine();
+			String name = BoundedLineReader.readLine(stdin, 5_000_000);
 			System.out.println(name + "\n");
 			message = processInput(builder, count, userIn, name).toString();
 			count++;

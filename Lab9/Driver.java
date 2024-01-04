@@ -8,6 +8,7 @@
  * @version: 2020.14.04
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -36,7 +37,7 @@ public class Driver {
         while(switchOn == true)
         {
             System.out.print("\nMake your selection now: ");
-            int input = Integer.parseInt(stdin.readLine());
+            int input = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
             System.out.println(input);
 
             switch(input)
@@ -46,7 +47,7 @@ public class Driver {
                 for(int i = 0; i < 5; i++)
                 {
                     System.out.print("\nInteger " + i + ": ");
-                    int toAdd = Integer.parseInt(stdin.readLine());
+                    int toAdd = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
                     System.out.println(toAdd);
                     array[i] = toAdd;
                 }
@@ -61,13 +62,13 @@ public class Driver {
             case 2:
                 System.out.print("\nWhat upper bound do you want to set?"
                                  + "\nMake your selection now: ");
-                int upperBound = Integer.parseInt(stdin.readLine());
+                int upperBound = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
                 System.out.println(upperBound);
 
                 while(upperBound <= 0)
                 {
                     System.out.println("\nMust be a positive number!");
-                    upperBound = Integer.parseInt(stdin.readLine()) + 1;
+                    upperBound = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000)) + 1;
                 }
 
                 for(int i = 0; i < 5; i++)

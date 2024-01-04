@@ -9,6 +9,7 @@
  * @version: 2020.04.30
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,7 +32,7 @@ public class Driver {
 		boolean switchOn = true;
 		while (switchOn == true) {
 			System.out.print("\nMake your selection now: ");
-			int input = Integer.parseInt(stdin.readLine());
+			int input = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 			System.out.println(input);
 			
 			switch (input) {
@@ -42,11 +43,11 @@ public class Driver {
 
 			case 1:
 				System.out.print("Please specify\nKey: ");
-				String key = stdin.readLine();
+				String key = BoundedLineReader.readLine(stdin, 5_000_000);
 				System.out.println(key);
 
 				System.out.print("\nValue: ");
-				int value = Integer.parseInt(stdin.readLine());
+				int value = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000));
 				System.out.println(value);
 
 				if(table.tableInsert(key, value) == false)
@@ -61,7 +62,7 @@ public class Driver {
 
 			case 2:
 				System.out.print("Please specify Key to delete: ");
-				String deleteKey = stdin.readLine();
+				String deleteKey = BoundedLineReader.readLine(stdin, 5_000_000);
 				System.out.println(deleteKey);
 				
 				if (table.tableDelete(deleteKey) == true) {
@@ -74,7 +75,7 @@ public class Driver {
 
 			case 3:
 				System.out.print("Please specify key to retrieve: ");
-				String retrieveKey = stdin.readLine();
+				String retrieveKey = BoundedLineReader.readLine(stdin, 5_000_000);
 				System.out.println(retrieveKey);
 				
 				Integer retrieveValue = table.tableRetrieve(retrieveKey);
@@ -89,7 +90,7 @@ public class Driver {
 			case 4:
 
 				System.out.print("Please specify which key to display hashCode of: ");
-				String hashKey = stdin.readLine();
+				String hashKey = BoundedLineReader.readLine(stdin, 5_000_000);
 				System.out.println(hashKey);
 				
 				if (table.tableRetrieve(hashKey) == null) {

@@ -16,6 +16,7 @@
 
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,7 +46,7 @@ public class Driver {
         while(switchOn == true)
         {
             System.out.print("\nMake your selection now: ");
-            int selection = Integer.parseInt(stdin.readLine().trim());
+            int selection = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
             System.out.println(selection);
 
             switch(selection)
@@ -67,23 +68,23 @@ public class Driver {
                 System.out.println("Please specify info: ");
 
                 System.out.print("Item name: ");
-                name = stdin.readLine().trim();
+                name = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(name);
 
                 System.out.print("\nItem weight: ");
-                weight = Float.parseFloat(stdin.readLine().trim());
+                weight = Float.parseFloat(BoundedLineReader.readLine(stdin, 5_000_000).trim());
                 System.out.println(weight);
 
                 System.out.print("\n# of items: ");
-                amount = Integer.parseInt(stdin.readLine().trim());
+                amount = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
                 System.out.println(amount);
 
                 System.out.print("\nSender: ");
-                sender = stdin.readLine().trim();
+                sender = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(sender);
 
                 System.out.print("\nRecipient: ");
-                recipient = stdin.readLine().trim();
+                recipient = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(recipient);
 
                 Package pack = new Package(name, weight, amount, sender, recipient);
@@ -109,13 +110,13 @@ public class Driver {
 
 
                     System.out.print("Here is your package " + dropOff.getItemReceiver() + ". May I keep a sample (Y/N)? ");
-                    String response = stdin.readLine();
+                    String response = BoundedLineReader.readLine(stdin, 5_000_000);
                     System.out.print(response);
 
                     while(!((response.toUpperCase().equals("Y") || (response.toUpperCase().equals("N")))))
                     {
                         System.out.print("Please say (Y)es or (No)! ");
-                        response = stdin.readLine().trim();
+                        response = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                         System.out.println(response);
                     }
 
@@ -196,23 +197,23 @@ public class Driver {
                 System.out.println("Please specify express package info: ");
 
                 System.out.print("Item name: ");
-                expName = stdin.readLine().trim();
+                expName = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(expName);
 
                 System.out.print("\nItem weight: ");
-                expWeight = Float.parseFloat(stdin.readLine().trim());
+                expWeight = Float.parseFloat(BoundedLineReader.readLine(stdin, 5_000_000).trim());
                 System.out.println(expWeight);
 
                 System.out.print("\n# of items: ");
-                expAmount = Integer.parseInt(stdin.readLine().trim());
+                expAmount = Integer.parseInt(BoundedLineReader.readLine(stdin, 5_000_000).trim());
                 System.out.println(expAmount);
 
                 System.out.print("\nSender: ");
-                expSender = stdin.readLine().trim();
+                expSender = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(expSender);
 
                 System.out.print("\nRecipient: ");
-                expRecipient = stdin.readLine().trim();
+                expRecipient = BoundedLineReader.readLine(stdin, 5_000_000).trim();
                 System.out.println(expRecipient);
 
                 Package expPack = new Package(expName, expWeight, expAmount, expSender, expRecipient);
