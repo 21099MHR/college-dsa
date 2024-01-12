@@ -112,7 +112,7 @@ public class Driver {
                     String response = BoundedLineReader.readLine(stdin, 5_000_000);
                     System.out.print(response);
 
-                    while(!((response.toUpperCase().equals("Y") || (response.toUpperCase().equals("N")))))
+                    while(!(("Y".equals(response.toUpperCase()) || (response.toUpperCase().equals("N")))))
                     {
                         System.out.print("Please say (Y)es or (No)! ");
                         response = BoundedLineReader.readLine(stdin, 5_000_000).trim();
